@@ -1,0 +1,59 @@
+.hero {
+  height: 100vh;
+  background-color: #0a0a23;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Arial", sans-serif;
+  padding-left: 60px;
+  padding-right: 20px;
+}
+
+.name {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.school,
+.internship {
+  font-size: 1.5rem;
+  margin: 4px 0;
+  font-weight: normal;
+}
+
+.icons {
+  display: flex;
+  gap: 20px;
+  font-size: 2rem;
+  margin: 30px 0;
+}
+
+.icons a {
+  color: #87cefa;
+  transition: transform 0.2s ease;
+}
+
+.icons a:hover {
+  transform: scale(1.2);
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.nav-links a {
+  color: #87cefa;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
