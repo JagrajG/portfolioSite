@@ -207,3 +207,15 @@
   padding-left: 20px;
   list-style-type: disc;
 }
+
+.project-icon {
+  margin-left: 10px;
+  color: #87cefa;
+  font-size: 1.3rem;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+
+.project-icon:hover {
+  transform: scale(1.2);
+}

@@ -87,7 +87,7 @@ const Hero = () => {
         {activeSection === "bio" && (
           <div className="bio-box">
             <p>
-              I'm a second-year Computer Science major at Simon Fraser
+              👋 I'm a second-year Computer Science major at Simon Fraser
               University. My passion for programming began in Grade 5 when my
               ICT teacher introduced me to Scratch. From that moment, I knew I
               wanted to pursue a future in technology.
@@ -150,7 +150,17 @@ const Hero = () => {
         {activeSection === "projects" && (
           <div className="project-scroll">
             <div className="project-box">
-              <h2>Investment Tracker</h2>
+              <h2>
+                Investment Tracker{" "}
+                <a
+                  href="https://github.com/JagrajG/InvestmentTracker"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-icon"
+                >
+                  <FaGithub />
+                </a>
+              </h2>
               <ul>
                 <li>
                   Built a Java Swing desktop app using JFreeChart to visualize
@@ -168,7 +178,17 @@ const Hero = () => {
             </div>
 
             <div className="project-box">
-              <h2>GitFit</h2>
+              <h2>
+                GitFit{" "}
+                <a
+                  href="https://github.com/CMPT-276-SPRING-2025/final-project-17-sunsets"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-icon"
+                >
+                  <FaGithub />
+                </a>
+              </h2>
               <ul>
                 <li>
                   Led the development of a full-stack fitness web app that helps
@@ -187,7 +207,17 @@ const Hero = () => {
             </div>
 
             <div className="project-box">
-              <h2>Pothole Patrol</h2>
+              <h2>
+                Pothole Patrol{" "}
+                <a
+                  href="https://github.com/JagrajG/pot-holes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-icon"
+                >
+                  <FaGithub />
+                </a>
+              </h2>
               <ul>
                 <li>
                   Built a full-stack web app for crowdsourcing pothole reports,
@@ -205,7 +235,17 @@ const Hero = () => {
             </div>
 
             <div className="project-box">
-              <h2>BMP Viewer & Image Tool</h2>
+              <h2>
+                BMP Viewer & Image Tool{" "}
+                <a
+                  href="https://github.com/JagrajG/BMP-Viewer-and-Image-Manipulation-Tool"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-icon"
+                >
+                  <FaGithub />
+                </a>
+              </h2>
               <ul>
                 <li>
                   Created a Python GUI tool with Tkinter to inspect and
