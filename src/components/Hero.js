@@ -73,13 +73,13 @@ const Hero = () => {
 
           <div className="nav-links">
             <h3>
-              <a onClick={() => setActiveSection("bio")}>bio</a>
+              <a onClick={() => setActiveSection("bio")}>Bio</a>
             </h3>
             <h3>
-              <a onClick={() => setActiveSection("experience")}>experience</a>
+              <a onClick={() => setActiveSection("experience")}>Experience</a>
             </h3>
             <h3>
-              <a onClick={() => setActiveSection("projects")}>projects</a>
+              <a onClick={() => setActiveSection("projects")}>Projects</a>
             </h3>
           </div>
         </div>
