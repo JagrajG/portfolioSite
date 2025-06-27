@@ -10,7 +10,8 @@ const Hero = () => {
   const [activeSection, setActiveSection] = useState("bio");
 
   useEffect(() => {
-    if (!vantaEffect && vantaRef.current) {
+    const isMobile = window.innerWidth < 768;
+    if (!vantaEffect && vantaRef.current && !isMobile) {
       const effect = TOPOLOGY({
         el: vantaRef.current,
         p5,
