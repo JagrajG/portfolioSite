@@ -21,7 +21,7 @@ const Hero = () => {
         minWidth: 200.0,
         scale: 1.0,
         scaleMobile: 1.0,
-        color: 0x8f9df0,
+        color: 0x8f9df0, // lighter than 0x4a5cd7
         backgroundColor: 0x0a0a23,
       });
       setVantaEffect(effect);
@@ -62,20 +62,24 @@ const Hero = () => {
             >
               <FaLinkedin />
             </a>
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+            <a
+              href="/Jagraj_resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaFileAlt />
             </a>
           </div>
 
           <div className="nav-links">
             <h3>
-              <a onClick={() => setActiveSection("bio")}>Bio</a>
+              <a onClick={() => setActiveSection("bio")}>bio</a>
             </h3>
             <h3>
-              <a onClick={() => setActiveSection("experience")}>Experience</a>
+              <a onClick={() => setActiveSection("experience")}>experience</a>
             </h3>
             <h3>
-              <a onClick={() => setActiveSection("projects")}>Projects</a>
+              <a onClick={() => setActiveSection("projects")}>projects</a>
             </h3>
           </div>
         </div>
@@ -83,7 +87,7 @@ const Hero = () => {
         {activeSection === "bio" && (
           <div className="bio-box">
             <p>
-              I'm a second-year Computer Science major at Simon Fraser
+              👋 I'm a second-year Computer Science major at Simon Fraser
               University. My passion for programming began in Grade 5 when my
               ICT teacher introduced me to Scratch. From that moment, I knew I
               wanted to pursue a future in technology.
@@ -127,15 +131,131 @@ const Hero = () => {
               </div>
 
               <div className="experience-box">
-                <h2>Frontend Developer</h2>
-                <h4>Lorem Ipsum Inc — Jan 2024 to Apr 2024</h4>
+                <h2>StormHacks 2024</h2>
+                <h4>SFU Hackathon — May 2024</h4>
                 <p>
-                  Consectetur adipiscing elit. Integer nec odio. Praesent
-                  libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem
-                  at nibh elementum imperdiet. Duis sagittis ipsum. Praesent
-                  mauris. Fusce nec tellus sed augue semper porta.
+                  Developed RESTful APIs using Node.js and Express.js to enable
+                  real-time data updates, significantly improving system
+                  responsiveness. Deployed and managed MongoDB on a Linux server
+                  to ensure reliable data storage and high uptime. Integrated
+                  dynamic frontend features using React.js to deliver a seamless
+                  and interactive user experience throughout the hackathon
+                  project.
                 </p>
               </div>
+            </div>
+          </div>
+        )}
+
+        {activeSection === "projects" && (
+          <div className="project-scroll">
+            <div className="project-box">
+              <h2>
+                Investment Tracker{" "}
+                <a
+                  href="https://github.com/JagrajG/InvestmentTracker"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-icon"
+                >
+                  <FaGithub />
+                </a>
+              </h2>
+              <ul>
+                <li>
+                  Built a Java Swing desktop app using JFreeChart to visualize
+                  investment growth in side-by-side charts.
+                </li>
+                <li>
+                  Calculated real-time asset performance using spot prices and
+                  historical data.
+                </li>
+                <li>
+                  Enhanced reliability with exception handling and input
+                  validation.
+                </li>
+              </ul>
+            </div>
+
+            <div className="project-box">
+              <h2>
+                GitFit{" "}
+                <a
+                  href="https://github.com/CMPT-276-SPRING-2025/final-project-17-sunsets"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-icon"
+                >
+                  <FaGithub />
+                </a>
+              </h2>
+              <ul>
+                <li>
+                  Led the development of a full-stack fitness web app that helps
+                  users generate personalized workouts based on live weather
+                  data and track progress through graphs and local storage.
+                </li>
+                <li>
+                  Implemented weather-based workout and clothing recommendation
+                  systems using OpenWeatherMap and WGER APIs.
+                </li>
+                <li>
+                  Deployed a responsive platform with city-specific weather
+                  search, step tracking, and a customizable workout builder.
+                </li>
+              </ul>
+            </div>
+
+            <div className="project-box">
+              <h2>
+                Pothole Patrol{" "}
+                <a
+                  href="https://github.com/JagrajG/pot-holes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-icon"
+                >
+                  <FaGithub />
+                </a>
+              </h2>
+              <ul>
+                <li>
+                  Built a full-stack web app for crowdsourcing pothole reports,
+                  with real-time tracking to improve civic response.
+                </li>
+                <li>
+                  Developed RESTful APIs with Node.js and Express to handle
+                  submissions, geolocation, and status updates.
+                </li>
+                <li>
+                  Hosted services on a Linux server using MongoDB, maintaining
+                  99% uptime and low-latency access city-wide.
+                </li>
+              </ul>
+            </div>
+
+            <div className="project-box">
+              <h2>
+                BMP Viewer & Image Tool{" "}
+                <a
+                  href="https://github.com/JagrajG/BMP-Viewer-and-Image-Manipulation-Tool"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-icon"
+                >
+                  <FaGithub />
+                </a>
+              </h2>
+              <ul>
+                <li>
+                  Created a Python GUI tool with Tkinter to inspect and
+                  manipulate BMP images.
+                </li>
+                <li>
+                  Parsed headers manually and supported editing features like
+                  RGB toggling and brightness adjustments.
+                </li>
+              </ul>
             </div>
           </div>
         )}
