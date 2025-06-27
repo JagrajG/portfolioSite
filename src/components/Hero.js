@@ -1,40 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
-import TOPOLOGY from "vanta/dist/vanta.topology.min";
-import p5 from "p5";
+import React, { useState } from "react";
 import { FaEnvelope, FaGithub, FaLinkedin, FaFileAlt } from "react-icons/fa";
 import "./Hero.css";
+import ParticlesHyperspaceBackground from "./ParticlesHyperspaceBackground";
 
 const Hero = () => {
-  const vantaRef = useRef(null);
-  const [vantaEffect, setVantaEffect] = useState(null);
   const [activeSection, setActiveSection] = useState("bio");
 
-  useEffect(() => {
-    const isMobile = window.innerWidth < 768;
-    if (!vantaEffect && vantaRef.current && !isMobile) {
-      const effect = TOPOLOGY({
-        el: vantaRef.current,
-        p5,
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.0,
-        minWidth: 200.0,
-        scale: 1.0,
-        scaleMobile: 1.0,
-        color: 0x8f9df0, // lighter than 0x4a5cd7
-        backgroundColor: 0x0a0a23,
-      });
-      setVantaEffect(effect);
-    }
-
-    return () => {
-      if (vantaEffect) vantaEffect.destroy();
-    };
-  }, [vantaEffect]);
-
   return (
-    <div ref={vantaRef} className="hero">
+    <div className="hero">
+      <ParticlesHyperspaceBackground /> {}
       <div className="hero-content">
         <div className="left-column">
           <h1 className="name">Jagraj Gill</h1>
