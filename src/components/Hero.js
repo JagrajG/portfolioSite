@@ -62,7 +62,7 @@ const Hero = () => {
         {activeSection === "bio" && (
           <div className="bio-box">
             <p>
-              👋 I'm a second-year Computer Science major at Simon Fraser
+              👋 I'm a third-year Computer Science major at Simon Fraser
               University. My passion for programming began in Grade 5 when my
               ICT teacher introduced me to Scratch. From that moment, I knew I
               wanted to pursue a future in technology.
