@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import Particles from "react-tsparticles";
-import { loadHyperspacePreset } from "tsparticles-preset-hyperspace";
+import { loadHyperspacePreset } from "@tsparticles/preset-hyperspace";
 
 const ParticlesHyperspaceBackground = () => {
   const particlesInit = useCallback(async (engine) => {
