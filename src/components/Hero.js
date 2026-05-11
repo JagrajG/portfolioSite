@@ -8,7 +8,7 @@ const Hero = () => {
 
   return (
     <div className="hero">
-      <ParticlesHyperspaceBackground /> {}
+      <ParticlesHyperspaceBackground />
       <div className="hero-content">
         <div className="left-column">
           <h1 className="name">Jagraj Gill</h1>
@@ -116,7 +116,7 @@ const Hero = () => {
             <div className="experience-scroll">
               <div className="experience-box">
                 <h2>Software Engineering Intern</h2>
-                <h4>Savi Finance — May 2025 to Aug 2025</h4>
+                <h4>Savi Finance — May 2025 to Dec 2025</h4>
                 <p>
                   During my internship at Savi Finance, I built full-stack
                   features for a Fintech SaaS platform with over 100 active
@@ -150,6 +150,78 @@ const Hero = () => {
           <div className="project-scroll">
             <div className="project-box">
               <h2>
+                AI Study Pal{" "}
+                <a
+                  href="https://github.com/JagrajG"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-icon"
+                >
+                  <FaGithub />
+                </a>
+              </h2>
+              <ul>
+                <li>
+                  Built an end-to-end AI study tool that converts PDF documents
+                  into structured flashcard datasets using Python, FastAPI, and
+                  the Gemini API.
+                </li>
+                <li>
+                  Designed a strict JSON schema for AI-generated flashcards with
+                  question-answer pairs to improve output consistency and
+                  reliable parsing.
+                </li>
+                <li>
+                  Implemented Python validation logic to verify data structure,
+                  field integrity, and content quality before displaying
+                  generated flashcards.
+                </li>
+                <li>
+                  Developed an interactive HTML, CSS, and JavaScript interface
+                  with flashcard flip and navigation features for real-time
+                  studying.
+                </li>
+              </ul>
+            </div>
+
+            <div className="project-box">
+              <h2>
+                Wireless 4-DOF Robotic Arm{" "}
+                <a
+                  href="https://github.com/JagrajG"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-icon"
+                >
+                  <FaGithub />
+                </a>
+              </h2>
+              <ul>
+                <li>
+                  Designed and fabricated a 4-DOF robotic arm using ESP32
+                  microcontrollers, MG90S servos, and custom 3D-printed
+                  components.
+                </li>
+                <li>
+                  Developed embedded C++ control software to process analog
+                  sensor input and generate PWM signals for real-time actuator
+                  control.
+                </li>
+                <li>
+                  Implemented wireless communication between dual ESP32 devices,
+                  enabling synchronized motion through real-time data
+                  transmission.
+                </li>
+                <li>
+                  Built a modular control architecture to support future
+                  expansion, including inverse kinematics and advanced sensor
+                  integration.
+                </li>
+              </ul>
+            </div>
+
+            <div className="project-box">
+              <h2>
                 Investment Tracker{" "}
                 <a
                   href="https://github.com/JagrajG/InvestmentTracker"
@@ -163,15 +235,17 @@ const Hero = () => {
               <ul>
                 <li>
                   Built a Java Swing desktop app using JFreeChart to visualize
-                  investment growth in side-by-side charts.
+                  investment growth through side-by-side charts.
                 </li>
                 <li>
-                  Calculated real-time asset performance using spot prices and
-                  historical data.
+                  Engineered portfolio logic to calculate real-time asset
+                  performance using live spot prices, asset quantities, and
+                  historical purchase data.
                 </li>
                 <li>
-                  Enhanced reliability with exception handling and input
-                  validation.
+                  Improved reliability with exception handling and input
+                  validation, ensuring consistent chart behavior for dynamic
+                  asset entries.
                 </li>
               </ul>
             </div>
@@ -190,17 +264,18 @@ const Hero = () => {
               </h2>
               <ul>
                 <li>
-                  Led the development of a full-stack fitness web app that helps
-                  users generate personalized workouts based on live weather
-                  data and track progress through graphs and local storage.
+                  Led development of a full-stack fitness web app that generates
+                  personalized workouts based on live weather data and user
+                  fitness goals.
                 </li>
                 <li>
-                  Implemented weather-based workout and clothing recommendation
-                  systems using OpenWeatherMap and WGER APIs.
+                  Implemented weather-based workout and clothing recommendations
+                  using OpenWeatherMap and WGER APIs.
                 </li>
                 <li>
-                  Deployed a responsive platform with city-specific weather
-                  search, step tracking, and a customizable workout builder.
+                  Built responsive features including city-specific weather
+                  search, step tracking, progress graphs, and a customizable
+                  workout builder.
                 </li>
               </ul>
             </div>
@@ -219,7 +294,7 @@ const Hero = () => {
               </h2>
               <ul>
                 <li>
-                  Built a full-stack web app for crowdsourcing pothole reports,
+                  Built a full-stack web app for crowdsourcing pothole reports
                   with real-time tracking to improve civic response.
                 </li>
                 <li>
@@ -228,7 +303,7 @@ const Hero = () => {
                 </li>
                 <li>
                   Hosted services on a Linux server using MongoDB, maintaining
-                  99% uptime and low-latency access city-wide.
+                  reliable uptime and low-latency access.
                 </li>
               </ul>
             </div>
@@ -248,11 +323,11 @@ const Hero = () => {
               <ul>
                 <li>
                   Created a Python GUI tool with Tkinter to inspect and
-                  manipulate BMP images.
+                  manipulate BMP image files.
                 </li>
                 <li>
-                  Parsed headers manually and supported editing features like
-                  RGB toggling and brightness adjustments.
+                  Parsed BMP headers manually and supported editing features
+                  including RGB toggling and brightness adjustments.
                 </li>
               </ul>
             </div>
