@@ -152,7 +152,7 @@ const Hero = () => {
               <h2>
                 AI Study Pal{" "}
                 <a
-                  href="https://github.com/JagrajG"
+                  href="https://github.com/JagrajG/AI-Study-pal/tree/main"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="project-icon"
