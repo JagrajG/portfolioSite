@@ -361,11 +361,11 @@ body,
     inset 0 1px 0 rgba(255, 255, 255, 0.13);
   backdrop-filter: blur(16px);
   transition:
-    transform 0.22s ease,
-    color 0.22s ease,
-    background 0.22s ease,
-    border-color 0.22s ease,
-    box-shadow 0.22s ease;
+    transform 0.22s ease 0.1s,
+    color 0.22s ease 0.1s,
+    background 0.22s ease 0.1s,
+    border-color 0.22s ease 0.1s,
+    box-shadow 0.22s ease 0.1s;
 }
 
 .icons a svg {
@@ -386,6 +386,7 @@ body,
 
 .icons a:active {
   transform: translateY(-1px) scale(0.98);
+  transition-delay: 0s;
 }
 
 /* Nav */
@@ -487,6 +488,48 @@ body,
   backdrop-filter: blur(18px);
 }
 
+.glass-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0deg,
+    transparent 85deg,
+    rgba(103, 232, 249, 0.75) 120deg,
+    rgba(192, 132, 252, 0.65) 160deg,
+    transparent 220deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.38;
+  pointer-events: none;
+  animation: borderRotate 6s linear infinite;
+  transition: opacity 0.25s ease 0.1s;
+}
+
+.glass-card:hover::after {
+  opacity: 0.82;
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes borderRotate {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
 .glass-card::before,
 .filter::before {
   content: "";
@@ -528,11 +571,11 @@ body,
 .glass-card:hover::before,
 .filter:hover::before,
 .active-filter::before {
-  animation: glassSweep 0.8s ease forwards;
+  animation: glassSweep 0.8s ease 0.1s forwards;
 }
 
 .icons a:hover::before {
-  animation: iconGlassSweep 0.65s ease forwards;
+  animation: iconGlassSweep 0.65s ease 0.1s forwards;
 }
 
 @keyframes glassSweep {
@@ -606,6 +649,24 @@ body,
   gap: 20px;
 }
 
+.experience-enter {
+  opacity: 0;
+  animation: experienceCardEnter 0.55s ease forwards;
+  animation-delay: var(--experience-delay);
+}
+
+@keyframes experienceCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* Project Filter Buttons */
 .project-filters {
   display: flex;
@@ -634,11 +695,11 @@ body,
     inset 0 1px 0 rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(14px);
   transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    color 0.2s ease;
+    transform 0.2s ease 0.1s,
+    background 0.2s ease 0.1s,
+    border-color 0.2s ease 0.1s,
+    box-shadow 0.2s ease 0.1s,
+    color 0.2s ease 0.1s;
 }
 
 .filter-icon {
@@ -671,14 +732,32 @@ body,
   gap: 20px;
 }
 
+.project-enter {
+  opacity: 0;
+  animation: projectCardEnter 0.55s ease forwards;
+  animation-delay: var(--project-delay);
+}
+
+@keyframes projectCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .experience-box,
 .project-box {
   padding: 20px 30px;
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease,
-    background 0.25s ease;
+    transform 0.25s ease 0.1s,
+    box-shadow 0.25s ease 0.1s,
+    border-color 0.25s ease 0.1s,
+    background 0.25s ease 0.1s;
 }
 
 .experience-box:hover,
@@ -738,8 +817,8 @@ body,
   font-size: 1.3rem;
   vertical-align: middle;
   transition:
-    transform 0.2s ease,
-    filter 0.2s ease;
+    transform 0.2s ease 0.1s,
+    filter 0.2s ease 0.1s;
 }
 
 .project-icon:hover {
@@ -765,11 +844,11 @@ body,
   border: 1px solid rgba(103, 232, 249, 0.22);
   box-shadow: 0 0 12px rgba(103, 232, 249, 0.08);
   transition:
-    transform 0.22s ease,
-    background 0.22s ease,
-    border-color 0.22s ease,
-    box-shadow 0.22s ease,
-    color 0.22s ease;
+    transform 0.22s ease 0.1s,
+    background 0.22s ease 0.1s,
+    border-color 0.22s ease 0.1s,
+    box-shadow 0.22s ease 0.1s,
+    color 0.22s ease 0.1s;
 }
 
 .project-box:hover .tech-stack span {
