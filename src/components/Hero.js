@@ -3,16 +3,124 @@ import { FaEnvelope, FaGithub, FaLinkedin, FaFileAlt } from "react-icons/fa";
 import "./Hero.css";
 import ParticlesHyperspaceBackground from "./ParticlesHyperspaceBackground";
 
+const projects = [
+  {
+    title: "AI Study Pal",
+    github: "https://github.com/JagrajG",
+    categories: ["AI", "Web"],
+    tech: ["Python", "FastAPI", "Gemini API", "JavaScript"],
+    bullets: [
+      "Built an end-to-end AI study tool that converts PDF documents into structured flashcard datasets.",
+      "Designed a strict JSON schema for AI-generated question and answer pairs.",
+      "Implemented Python validation logic to prevent malformed AI responses from entering the app.",
+      "Developed an interactive flashcard interface with flip and navigation features.",
+    ],
+  },
+  {
+    title: "Wireless 4-DOF Robotic Arm",
+    github: "https://github.com/JagrajG",
+    categories: ["Embedded"],
+    tech: ["ESP32", "C++", "Embedded", "PWM"],
+    bullets: [
+      "Designed and fabricated a 4-DOF robotic arm using ESP32 microcontrollers, MG90S servos, and 3D-printed components.",
+      "Developed embedded C++ control software for analog sensor input and real-time actuator control.",
+      "Implemented wireless communication between dual ESP32 devices for synchronized motion.",
+      "Built a modular architecture to support future inverse kinematics and sensor upgrades.",
+    ],
+  },
+  {
+    title: "Investment Tracker",
+    github: "https://github.com/JagrajG/InvestmentTracker",
+    categories: ["Java"],
+    tech: ["Java", "Swing", "JFreeChart", "SQLite"],
+    bullets: [
+      "Built a Java Swing desktop app to visualize investment growth using side-by-side charts.",
+      "Engineered portfolio logic to calculate asset performance from live spot prices and purchase data.",
+      "Improved reliability with exception handling and input validation for dynamic asset entries.",
+    ],
+  },
+  {
+    title: "GitFit",
+    github: "https://github.com/CMPT-276-SPRING-2025/final-project-17-sunsets",
+    categories: ["Web"],
+    tech: ["React", "APIs", "LocalStorage", "CSS"],
+    bullets: [
+      "Led development of a full-stack fitness web app that generates personalized workouts using live weather data.",
+      "Implemented weather-based workout and clothing recommendation systems using OpenWeatherMap and WGER APIs.",
+      "Built city-specific weather search, step tracking, progress graphs, and a custom workout builder.",
+    ],
+  },
+  {
+    title: "Pothole Patrol",
+    github: "https://github.com/JagrajG/pot-holes",
+    categories: ["Web"],
+    tech: ["Node.js", "Express", "MongoDB", "Linux"],
+    bullets: [
+      "Built a full-stack web app for crowdsourcing pothole reports with real-time status tracking.",
+      "Developed RESTful APIs to handle submissions, geolocation, and civic issue updates.",
+      "Hosted services on a Linux server using MongoDB for reliable data storage.",
+    ],
+  },
+  {
+    title: "BMP Viewer & Image Tool",
+    github: "https://github.com/JagrajG/BMP-Viewer-and-Image-Manipulation-Tool",
+    categories: ["Python"],
+    tech: ["Python", "Tkinter", "BMP", "GUI"],
+    bullets: [
+      "Created a Python GUI tool with Tkinter to inspect and manipulate BMP image files.",
+      "Parsed BMP headers manually and supported RGB toggling and brightness adjustments.",
+    ],
+  },
+];
+
+const projectFilters = ["All", "AI", "Web", "Embedded", "Java", "Python"];
+
 const Hero = () => {
   const [activeSection, setActiveSection] = useState("bio");
+  const [activeProjectFilter, setActiveProjectFilter] = useState("All");
 
   const handleSectionChange = (e, section) => {
     e.preventDefault();
     setActiveSection(section);
   };
 
+  const handleHeroMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    e.currentTarget.style.setProperty("--mouse-x", `${x}px`);
+    e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
+  };
+
+  const handleProjectMouseMove = (e) => {
+    if (window.innerWidth <= 900) return;
+
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const rotateY = (x / rect.width - 0.5) * 10;
+    const rotateX = (y / rect.height - 0.5) * -10;
+
+    card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.015)`;
+  };
+
+  const handleProjectMouseLeave = (e) => {
+    e.currentTarget.style.transform = "";
+  };
+
+  const filteredProjects =
+    activeProjectFilter === "All"
+      ? projects
+      : projects.filter((project) =>
+          project.categories.includes(activeProjectFilter),
+        );
+
   return (
-    <div className="hero">
+    <div className="hero" onMouseMove={handleHeroMouseMove}>
       <ParticlesHyperspaceBackground />
 
       <div className="hero-content">
@@ -152,231 +260,58 @@ const Hero = () => {
         )}
 
         {activeSection === "projects" && (
-          <div className="project-scroll">
-            <div className="project-box">
-              <h2>
-                AI Study Pal{" "}
-                <a
-                  href="https://github.com/JagrajG"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-icon"
-                  aria-label="AI Study Pal GitHub"
+          <div className="project-panel">
+            <div className="project-filters">
+              {projectFilters.map((filter) => (
+                <button
+                  key={filter}
+                  type="button"
+                  className={
+                    activeProjectFilter === filter
+                      ? "filter active-filter"
+                      : "filter"
+                  }
+                  onClick={() => setActiveProjectFilter(filter)}
                 >
-                  <FaGithub />
-                </a>
-              </h2>
-
-              <div className="tech-stack">
-                <span>Python</span>
-                <span>FastAPI</span>
-                <span>Gemini API</span>
-                <span>JavaScript</span>
-              </div>
-
-              <ul>
-                <li>
-                  Built an end-to-end AI study tool that converts PDF documents
-                  into structured flashcard datasets.
-                </li>
-                <li>
-                  Designed a strict JSON schema for AI-generated question and
-                  answer pairs.
-                </li>
-                <li>
-                  Implemented Python validation logic to prevent malformed AI
-                  responses from entering the app.
-                </li>
-                <li>
-                  Developed an interactive flashcard interface with flip and
-                  navigation features.
-                </li>
-              </ul>
+                  {filter}
+                </button>
+              ))}
             </div>
 
-            <div className="project-box">
-              <h2>
-                Wireless 4-DOF Robotic Arm{" "}
-                <a
-                  href="https://github.com/JagrajG"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-icon"
-                  aria-label="Wireless Robotic Arm GitHub"
+            <div className="project-scroll">
+              {filteredProjects.map((project) => (
+                <div
+                  className="project-box"
+                  key={project.title}
+                  onMouseMove={handleProjectMouseMove}
+                  onMouseLeave={handleProjectMouseLeave}
                 >
-                  <FaGithub />
-                </a>
-              </h2>
+                  <h2>
+                    {project.title}{" "}
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-icon"
+                      aria-label={`${project.title} GitHub`}
+                    >
+                      <FaGithub />
+                    </a>
+                  </h2>
 
-              <div className="tech-stack">
-                <span>ESP32</span>
-                <span>C++</span>
-                <span>Embedded</span>
-                <span>PWM</span>
-              </div>
+                  <div className="tech-stack">
+                    {project.tech.map((tech) => (
+                      <span key={tech}>{tech}</span>
+                    ))}
+                  </div>
 
-              <ul>
-                <li>
-                  Designed and fabricated a 4-DOF robotic arm using ESP32
-                  microcontrollers, MG90S servos, and 3D-printed components.
-                </li>
-                <li>
-                  Developed embedded C++ control software for analog sensor
-                  input and real-time actuator control.
-                </li>
-                <li>
-                  Implemented wireless communication between dual ESP32 devices
-                  for synchronized motion.
-                </li>
-                <li>
-                  Built a modular architecture to support future inverse
-                  kinematics and sensor upgrades.
-                </li>
-              </ul>
-            </div>
-
-            <div className="project-box">
-              <h2>
-                Investment Tracker{" "}
-                <a
-                  href="https://github.com/JagrajG/InvestmentTracker"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-icon"
-                  aria-label="Investment Tracker GitHub"
-                >
-                  <FaGithub />
-                </a>
-              </h2>
-
-              <div className="tech-stack">
-                <span>Java</span>
-                <span>Swing</span>
-                <span>JFreeChart</span>
-                <span>SQLite</span>
-              </div>
-
-              <ul>
-                <li>
-                  Built a Java Swing desktop app to visualize investment growth
-                  using side-by-side charts.
-                </li>
-                <li>
-                  Engineered portfolio logic to calculate asset performance from
-                  live spot prices and purchase data.
-                </li>
-                <li>
-                  Improved reliability with exception handling and input
-                  validation for dynamic asset entries.
-                </li>
-              </ul>
-            </div>
-
-            <div className="project-box">
-              <h2>
-                GitFit{" "}
-                <a
-                  href="https://github.com/CMPT-276-SPRING-2025/final-project-17-sunsets"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-icon"
-                  aria-label="GitFit GitHub"
-                >
-                  <FaGithub />
-                </a>
-              </h2>
-
-              <div className="tech-stack">
-                <span>React</span>
-                <span>APIs</span>
-                <span>LocalStorage</span>
-                <span>CSS</span>
-              </div>
-
-              <ul>
-                <li>
-                  Led development of a full-stack fitness web app that generates
-                  personalized workouts using live weather data.
-                </li>
-                <li>
-                  Implemented weather-based workout and clothing recommendation
-                  systems using OpenWeatherMap and WGER APIs.
-                </li>
-                <li>
-                  Built city-specific weather search, step tracking, progress
-                  graphs, and a custom workout builder.
-                </li>
-              </ul>
-            </div>
-
-            <div className="project-box">
-              <h2>
-                Pothole Patrol{" "}
-                <a
-                  href="https://github.com/JagrajG/pot-holes"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-icon"
-                  aria-label="Pothole Patrol GitHub"
-                >
-                  <FaGithub />
-                </a>
-              </h2>
-
-              <div className="tech-stack">
-                <span>Node.js</span>
-                <span>Express</span>
-                <span>MongoDB</span>
-                <span>Linux</span>
-              </div>
-
-              <ul>
-                <li>
-                  Built a full-stack web app for crowdsourcing pothole reports
-                  with real-time status tracking.
-                </li>
-                <li>
-                  Developed RESTful APIs to handle submissions, geolocation, and
-                  civic issue updates.
-                </li>
-                <li>
-                  Hosted services on a Linux server using MongoDB for reliable
-                  data storage.
-                </li>
-              </ul>
-            </div>
-
-            <div className="project-box">
-              <h2>
-                BMP Viewer & Image Tool{" "}
-                <a
-                  href="https://github.com/JagrajG/BMP-Viewer-and-Image-Manipulation-Tool"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-icon"
-                  aria-label="BMP Viewer GitHub"
-                >
-                  <FaGithub />
-                </a>
-              </h2>
-
-              <div className="tech-stack">
-                <span>Python</span>
-                <span>Tkinter</span>
-                <span>BMP</span>
-                <span>GUI</span>
-              </div>
-
-              <ul>
-                <li>
-                  Created a Python GUI tool with Tkinter to inspect and
-                  manipulate BMP image files.
-                </li>
-                <li>
-                  Parsed BMP headers manually and supported RGB toggling and
-                  brightness adjustments.
-                </li>
-              </ul>
+                  <ul>
+                    {project.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         )}
