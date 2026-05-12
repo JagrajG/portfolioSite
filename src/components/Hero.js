@@ -107,6 +107,8 @@ const projectFilters = [
   { label: "Python", icon: <FaPython /> },
 ];
 
+const particles = Array.from({ length: 18 }, (_, index) => index + 1);
+
 const LiquidRadarBackground = () => {
   return (
     <div className="design-background" aria-hidden="true">
@@ -115,6 +117,15 @@ const LiquidRadarBackground = () => {
       <div className="liquid-blob blob-three"></div>
       <div className="liquid-blob blob-four"></div>
       <div className="glass-noise"></div>
+
+      <div className="particle-layer">
+        {particles.map((particle) => (
+          <span
+            className={`particle particle-${particle}`}
+            key={particle}
+          ></span>
+        ))}
+      </div>
     </div>
   );
 };
