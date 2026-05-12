@@ -12,7 +12,6 @@ import {
   FaLayerGroup,
 } from "react-icons/fa";
 import "./Hero.css";
-import ParticlesHyperspaceBackground from "./ParticlesHyperspaceBackground";
 
 const projects = [
   {
@@ -54,7 +53,7 @@ const projects = [
     title: "GitFit",
     github: "https://github.com/CMPT-276-SPRING-2025/final-project-17-sunsets",
     categories: ["Web"],
-    tech: ["React", "APIs", "Cookies", "CSS"],
+    tech: ["React", "APIs", "LocalStorage", "CSS"],
     bullets: [
       "Led development of a full-stack fitness web app that generates personalized workouts using live weather data.",
       "Implemented weather-based workout and clothing recommendation systems using OpenWeatherMap and WGER APIs.",
@@ -111,6 +110,53 @@ const projectFilters = [
   },
 ];
 
+const CircuitBackground = () => {
+  return (
+    <svg
+      className="circuit-background"
+      viewBox="0 0 1200 800"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <g className="circuit-group circuit-group-one">
+        <path d="M80 120 H280 V210 H430" />
+        <path d="M160 620 H330 V510 H520 V430 H680" />
+        <path d="M760 160 H940 V260 H1080" />
+        <path d="M700 650 H860 V560 H1040" />
+        <path d="M250 330 H430 V270 H560" />
+
+        <circle cx="80" cy="120" r="5" />
+        <circle cx="280" cy="210" r="5" />
+        <circle cx="430" cy="210" r="5" />
+        <circle cx="520" cy="510" r="5" />
+        <circle cx="680" cy="430" r="5" />
+        <circle cx="940" cy="260" r="5" />
+        <circle cx="1080" cy="260" r="5" />
+        <circle cx="1040" cy="560" r="5" />
+        <circle cx="560" cy="270" r="5" />
+      </g>
+
+      <g className="circuit-group circuit-group-two">
+        <path d="M40 390 H210 V470 H360" />
+        <path d="M500 90 V190 H640 V300 H780" />
+        <path d="M830 360 H980 V450 H1160" />
+        <path d="M110 720 H300 V665 H460 V600 H620" />
+        <path d="M650 730 H780 V670 H940 V610 H1110" />
+
+        <circle cx="40" cy="390" r="4" />
+        <circle cx="210" cy="470" r="4" />
+        <circle cx="360" cy="470" r="4" />
+        <circle cx="500" cy="90" r="4" />
+        <circle cx="640" cy="190" r="4" />
+        <circle cx="780" cy="300" r="4" />
+        <circle cx="1160" cy="450" r="4" />
+        <circle cx="620" cy="600" r="4" />
+        <circle cx="1110" cy="610" r="4" />
+      </g>
+    </svg>
+  );
+};
+
 const Hero = () => {
   const [activeSection, setActiveSection] = useState("bio");
   const [activeProjectFilter, setActiveProjectFilter] = useState("All");
@@ -157,7 +203,7 @@ const Hero = () => {
 
   return (
     <div className="hero" onMouseMove={handleHeroMouseMove}>
-      <ParticlesHyperspaceBackground />
+      <CircuitBackground />
 
       <div className="hero-content">
         <div className="left-column">

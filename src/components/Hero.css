@@ -18,11 +18,14 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle at center,
-    rgba(0, 0, 0, 0.22),
-    transparent 70%
-  );
+  background:
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.22), transparent 70%),
+    linear-gradient(
+      135deg,
+      rgba(0, 255, 150, 0.04),
+      transparent 38%,
+      rgba(0, 255, 150, 0.025)
+    );
   z-index: 0;
 }
 
@@ -31,14 +34,128 @@
   position: absolute;
   inset: 0;
   background: radial-gradient(
-    140px circle at var(--mouse-x) var(--mouse-y),
-    rgba(135, 206, 250, 0.28),
-    rgba(143, 157, 240, 0.16),
-    transparent 68%
+    160px circle at var(--mouse-x) var(--mouse-y),
+    rgba(0, 255, 150, 0.22),
+    rgba(0, 180, 120, 0.12),
+    transparent 70%
   );
   opacity: 1;
   pointer-events: none;
   z-index: 0;
+}
+
+/* Circuit Background */
+.circuit-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+}
+
+/* Base circuit lines always visible */
+.circuit-group {
+  fill: none;
+  stroke: rgba(0, 255, 150, 0.19);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 4px rgba(0, 255, 150, 0.1));
+}
+
+.circuit-group circle {
+  fill: rgba(0, 255, 150, 0.36);
+  stroke: none;
+}
+
+/* Bright flashlight layer */
+.circuit-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* Makes a second bright version of the SVG appear only near the mouse */
+.circuit-background {
+  filter: drop-shadow(0 0 7px rgba(0, 255, 150, 0.2));
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+.circuit-group-one {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 240;
+  animation: circuitFlowOne 9s linear infinite;
+}
+
+.circuit-group-two {
+  stroke-dasharray: 90;
+  stroke-dashoffset: 180;
+  animation: circuitFlowTwo 12s linear infinite;
+}
+
+.circuit-group-one circle {
+  animation: circuitNodePulse 2.8s ease-in-out infinite;
+}
+
+.circuit-group-two circle {
+  animation: circuitNodePulse 3.6s ease-in-out infinite;
+}
+
+/* The mouse creates stronger glow by lighting the SVG container */
+.hero:hover .circuit-background {
+  filter: drop-shadow(0 0 7px rgba(0, 255, 150, 0.22))
+    drop-shadow(0 0 18px rgba(0, 255, 150, 0.12));
+}
+
+/* This adds a hidden circuit-looking glow that follows the mouse */
+.hero .circuit-background {
+  background: radial-gradient(
+    280px circle at var(--mouse-x) var(--mouse-y),
+    rgba(0, 255, 150, 0.16),
+    rgba(0, 255, 150, 0.06) 42%,
+    transparent 72%
+  );
+  background-blend-mode: screen;
+}
+
+@keyframes circuitFlowOne {
+  from {
+    stroke-dashoffset: 240;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes circuitFlowTwo {
+  from {
+    stroke-dashoffset: 180;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes circuitNodePulse {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+
+  100% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
 }
 
 .hero-content {
@@ -70,7 +187,7 @@
   font-size: 3.5rem;
   font-weight: bold;
   margin-bottom: 10px;
-  text-shadow: 0 0 18px rgba(135, 206, 250, 0.3);
+  text-shadow: 0 0 18px rgba(0, 255, 150, 0.28);
 }
 
 .school,
@@ -98,7 +215,7 @@
   justify-content: center;
   border-radius: 14px;
   background: rgba(10, 10, 35, 0.58);
-  border: 1px solid rgba(135, 206, 250, 0.28);
+  border: 1px solid rgba(0, 255, 150, 0.28);
   box-shadow:
     0 8px 22px rgba(0, 0, 0, 0.35),
     inset 0 0 12px rgba(255, 255, 255, 0.03);
@@ -113,14 +230,14 @@
 }
 
 .icons a:hover {
-  color: #87cefa;
+  color: #00ff96;
   transform: translateY(-3px) scale(1.06);
-  background: rgba(135, 206, 250, 0.14);
-  border-color: rgba(135, 206, 250, 0.7);
+  background: rgba(0, 255, 150, 0.14);
+  border-color: rgba(0, 255, 150, 0.72);
   box-shadow:
     0 12px 28px rgba(0, 0, 0, 0.42),
-    0 0 18px rgba(135, 206, 250, 0.25);
-  filter: drop-shadow(0 0 8px rgba(135, 206, 250, 0.45));
+    0 0 18px rgba(0, 255, 150, 0.25);
+  filter: drop-shadow(0 0 8px rgba(0, 255, 150, 0.45));
 }
 
 .icons a:active {
@@ -150,8 +267,8 @@
 
 .nav-links a:hover,
 .nav-links a.active-link {
-  color: #87cefa;
-  text-shadow: 0 0 12px rgba(135, 206, 250, 0.8);
+  color: #00ff96;
+  text-shadow: 0 0 12px rgba(0, 255, 150, 0.8);
 }
 
 .nav-links a.active-link::after {
@@ -162,8 +279,8 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #87cefa;
-  box-shadow: 0 0 12px rgba(135, 206, 250, 0.9);
+  background: #00ff96;
+  box-shadow: 0 0 12px rgba(0, 255, 150, 0.9);
   transform: translateY(-50%);
 }
 
@@ -206,9 +323,11 @@
   font-size: 17px;
   line-height: 1.7;
   background: rgba(10, 10, 35, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 150, 0.12);
   backdrop-filter: blur(8px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.45),
+    0 0 20px rgba(0, 255, 150, 0.05);
   color: #e0e0e0;
   min-height: 250px;
   text-align: left;
@@ -221,7 +340,7 @@
   overflow-y: auto;
   padding-right: 10px;
   scrollbar-width: thin;
-  scrollbar-color: rgba(135, 206, 250, 0.75) rgba(255, 255, 255, 0.08);
+  scrollbar-color: rgba(0, 255, 150, 0.75) rgba(255, 255, 255, 0.08);
 }
 
 .experience-scroll::-webkit-scrollbar,
@@ -237,13 +356,13 @@
 
 .experience-scroll::-webkit-scrollbar-thumb,
 .project-scroll::-webkit-scrollbar-thumb {
-  background: rgba(135, 206, 250, 0.75);
+  background: rgba(0, 255, 150, 0.75);
   border-radius: 999px;
 }
 
 .experience-scroll::-webkit-scrollbar-thumb:hover,
 .project-scroll::-webkit-scrollbar-thumb:hover {
-  background: rgba(135, 206, 250, 1);
+  background: rgba(0, 255, 150, 1);
 }
 
 /* Experience Default Layout */
@@ -263,7 +382,7 @@
 
 .filter {
   cursor: pointer;
-  border: 1px solid rgba(135, 206, 250, 0.28);
+  border: 1px solid rgba(0, 255, 150, 0.28);
   border-radius: 999px;
   padding: 8px 14px;
   color: #e6e6e6;
@@ -294,22 +413,22 @@
 .filter:hover,
 .active-filter {
   color: #ffffff;
-  background: rgba(135, 206, 250, 0.2);
-  border-color: rgba(135, 206, 250, 0.75);
-  box-shadow: 0 0 18px rgba(135, 206, 250, 0.18);
+  background: rgba(0, 255, 150, 0.16);
+  border-color: rgba(0, 255, 150, 0.75);
+  box-shadow: 0 0 18px rgba(0, 255, 150, 0.18);
   transform: translateY(-2px);
 }
 
 .filter:hover .filter-icon {
   transform: translateY(-1px) scale(1.16);
-  color: #87cefa;
-  filter: drop-shadow(0 0 8px rgba(135, 206, 250, 0.75));
+  color: #00ff96;
+  filter: drop-shadow(0 0 8px rgba(0, 255, 150, 0.75));
 }
 
 .active-filter .filter-icon {
-  color: #87cefa;
+  color: #00ff96;
   animation: filterIconPulse 1.4s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px rgba(135, 206, 250, 0.85));
+  filter: drop-shadow(0 0 8px rgba(0, 255, 150, 0.85));
 }
 
 @keyframes filterIconPulse {
@@ -343,9 +462,11 @@
   line-height: 1.6;
   color: #e0e0e0;
   background: rgba(10, 10, 35, 0.62);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(0, 255, 150, 0.13);
   backdrop-filter: blur(6px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.45),
+    0 0 16px rgba(0, 255, 150, 0.04);
   text-align: left;
   box-sizing: border-box;
   transition:
@@ -357,19 +478,19 @@
 
 .experience-box:hover {
   transform: translateY(-2px);
-  border-color: rgba(135, 206, 250, 0.45);
+  border-color: rgba(0, 255, 150, 0.45);
   background: rgba(10, 10, 35, 0.72);
   box-shadow:
     0 16px 40px rgba(0, 0, 0, 0.55),
-    0 0 20px rgba(135, 206, 250, 0.18);
+    0 0 20px rgba(0, 255, 150, 0.18);
 }
 
 .project-box:hover {
-  border-color: rgba(135, 206, 250, 0.55);
+  border-color: rgba(0, 255, 150, 0.55);
   background: rgba(10, 10, 35, 0.74);
   box-shadow:
     0 18px 46px rgba(0, 0, 0, 0.58),
-    0 0 24px rgba(135, 206, 250, 0.2);
+    0 0 24px rgba(0, 255, 150, 0.2);
 }
 
 .experience-box h2,
@@ -391,7 +512,7 @@
   font-size: 1.05rem;
   margin-bottom: 15px;
   font-weight: normal;
-  color: #87cefa;
+  color: #00ff96;
 }
 
 .experience-box p {
@@ -410,7 +531,7 @@
 
 .project-icon {
   margin-left: 10px;
-  color: #87cefa;
+  color: #00ff96;
   font-size: 1.3rem;
   vertical-align: middle;
   transition:
@@ -420,7 +541,7 @@
 
 .project-icon:hover {
   transform: scale(1.2);
-  filter: drop-shadow(0 0 8px rgba(135, 206, 250, 0.8));
+  filter: drop-shadow(0 0 8px rgba(0, 255, 150, 0.8));
 }
 
 .tech-stack {
@@ -432,12 +553,12 @@
 
 .tech-stack span {
   font-size: 0.78rem;
-  color: #87cefa;
+  color: #00ff96;
   padding: 5px 9px;
   border-radius: 999px;
-  background: rgba(135, 206, 250, 0.1);
-  border: 1px solid rgba(135, 206, 250, 0.25);
-  box-shadow: 0 0 12px rgba(135, 206, 250, 0.08);
+  background: rgba(0, 255, 150, 0.09);
+  border: 1px solid rgba(0, 255, 150, 0.25);
+  box-shadow: 0 0 12px rgba(0, 255, 150, 0.08);
   transition:
     transform 0.22s ease,
     background 0.22s ease,
@@ -448,9 +569,9 @@
 
 .project-box:hover .tech-stack span {
   transform: translateY(-2px);
-  background: rgba(135, 206, 250, 0.18);
-  border-color: rgba(135, 206, 250, 0.48);
-  box-shadow: 0 0 14px rgba(135, 206, 250, 0.18);
+  background: rgba(0, 255, 150, 0.16);
+  border-color: rgba(0, 255, 150, 0.48);
+  box-shadow: 0 0 14px rgba(0, 255, 150, 0.18);
   color: #ffffff;
 }
 
@@ -490,7 +611,7 @@
 
   .experience-box h4,
   .project-box h4 {
-    color: #87cefa;
+    color: #00ff96;
     font-size: 1rem;
     margin-bottom: 16px;
   }
@@ -587,7 +708,8 @@
     overflow-y: auto;
   }
 
-  .hero::after {
+  .hero::after,
+  .circuit-background {
     display: none;
   }
 
