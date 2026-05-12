@@ -83,6 +83,21 @@ const projects = [
   },
 ];
 
+const experiences = [
+  {
+    title: "Software Engineering Intern",
+    subtitle: "Savi Finance - May 2025 to Dec 2025",
+    description:
+      "Built full-stack features for a fintech SaaS platform with 1000+ users. Developed shared React and React Native modules backed by MongoDB services, reducing release cycles by 15%. Integrated AWS S3 image uploads through GraphQL, improved upload reliability, and refactored login UI and validation flows to reduce user login errors by 45%.",
+  },
+  {
+    title: "StormHacks 2024",
+    subtitle: "SFU Hackathon - May 2024",
+    description:
+      "Directed a 2-person team during a 24-hour hackathon, dividing tasks and delivering a working full-stack application under strict time constraints. Designed and deployed REST APIs with Node.js and Express.js to enable real-time data updates.",
+  },
+];
+
 const projectFilters = [
   { label: "All", icon: <FaLayerGroup /> },
   { label: "AI", icon: <FaRobot /> },
@@ -257,30 +272,18 @@ const Hero = () => {
         )}
 
         {activeSection === "experience" && (
-          <div className="experience-scroll">
-            <div className="experience-box glass-card">
-              <h2>Software Engineering Intern</h2>
-              <h4>Savi Finance - May 2025 to Dec 2025</h4>
-              <p>
-                Built full-stack features for a fintech SaaS platform with 1000+
-                users. Developed shared React and React Native modules backed by
-                MongoDB services, reducing release cycles by 15%. Integrated AWS
-                S3 image uploads through GraphQL, improved upload reliability,
-                and refactored login UI and validation flows to reduce user
-                login errors by 45%.
-              </p>
-            </div>
-
-            <div className="experience-box glass-card">
-              <h2>StormHacks 2024</h2>
-              <h4>SFU Hackathon - May 2024</h4>
-              <p>
-                Directed a 2-person team during a 24-hour hackathon, dividing
-                tasks and delivering a working full-stack application under
-                strict time constraints. Designed and deployed REST APIs with
-                Node.js and Express.js to enable real-time data updates.
-              </p>
-            </div>
+          <div className="experience-scroll" key={activeSection}>
+            {experiences.map((experience, index) => (
+              <div
+                className="experience-box glass-card experience-enter"
+                style={{ "--experience-delay": `${index * 120}ms` }}
+                key={experience.title}
+              >
+                <h2>{experience.title}</h2>
+                <h4>{experience.subtitle}</h4>
+                <p>{experience.description}</p>
+              </div>
+            ))}
           </div>
         )}
 
@@ -304,10 +307,14 @@ const Hero = () => {
               ))}
             </div>
 
-            <div className="project-scroll">
-              {filteredProjects.map((project) => (
+            <div
+              className="project-scroll"
+              key={`${activeSection}-${activeProjectFilter}`}
+            >
+              {filteredProjects.map((project, index) => (
                 <div
-                  className="project-box glass-card"
+                  className="project-box glass-card project-enter"
+                  style={{ "--project-delay": `${index * 90}ms` }}
                   key={project.title}
                   onMouseMove={handleProjectMouseMove}
                   onMouseLeave={handleProjectMouseLeave}
