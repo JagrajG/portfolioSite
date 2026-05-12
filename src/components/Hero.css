@@ -80,25 +80,51 @@
   font-weight: normal;
 }
 
+/* Icon Buttons */
 .icons {
   display: flex;
-  gap: 20px;
-  font-size: 2rem;
+  gap: 14px;
+  font-size: 1.35rem;
   margin: 30px 0 18px;
 }
 
 .icons a {
-  color: #fff;
+  width: 46px;
+  height: 46px;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(10, 10, 35, 0.58);
+  border: 1px solid rgba(135, 206, 250, 0.28);
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.35),
+    inset 0 0 12px rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
   transition:
-    transform 0.2s ease,
-    color 0.2s ease,
-    filter 0.2s ease;
+    transform 0.22s ease,
+    color 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    filter 0.22s ease;
 }
 
 .icons a:hover {
   color: #87cefa;
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 10px rgba(135, 206, 250, 0.65));
+  transform: translateY(-3px) scale(1.06);
+  background: rgba(135, 206, 250, 0.14);
+  border-color: rgba(135, 206, 250, 0.7);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.42),
+    0 0 18px rgba(135, 206, 250, 0.25);
+  filter: drop-shadow(0 0 8px rgba(135, 206, 250, 0.45));
+}
+
+.icons a:active {
+  transform: translateY(-1px) scale(0.98);
 }
 
 .nav-links {
@@ -624,9 +650,15 @@
   .icons {
     justify-content: center;
     flex-wrap: wrap;
-    gap: 18px;
-    font-size: 1.8rem;
+    gap: 14px;
+    font-size: 1.25rem;
     margin: 24px 0 16px;
+  }
+
+  .icons a {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
   }
 
   .nav-links {
@@ -759,8 +791,13 @@
   }
 
   .icons {
-    font-size: 1.6rem;
-    gap: 16px;
+    font-size: 1.15rem;
+    gap: 12px;
+  }
+
+  .icons a {
+    width: 40px;
+    height: 40px;
   }
 
   .nav-links {

@@ -167,12 +167,12 @@ const Hero = () => {
 
           <div className="icons">
             <a
-              href="mailto:jsg51@sfu.ca"
+              href="https://www.linkedin.com/in/jagraj-gill-49392416a/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Email"
+              aria-label="LinkedIn"
             >
-              <FaEnvelope />
+              <FaLinkedin />
             </a>
 
             <a
@@ -185,12 +185,12 @@ const Hero = () => {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/jagraj-gill-49392416a/"
+              href="mailto:jsg51@sfu.ca"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn"
+              aria-label="Email"
             >
-              <FaLinkedin />
+              <FaEnvelope />
             </a>
 
             <a
