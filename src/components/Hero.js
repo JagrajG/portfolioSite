@@ -12,7 +12,6 @@ import {
   FaLayerGroup,
 } from "react-icons/fa";
 import "./Hero.css";
-import ParticlesHyperspaceBackground from "./ParticlesHyperspaceBackground";
 
 const projects = [
   {
@@ -54,7 +53,7 @@ const projects = [
     title: "GitFit",
     github: "https://github.com/CMPT-276-SPRING-2025/final-project-17-sunsets",
     categories: ["Web"],
-    tech: ["React", "APIs", "Cookies", "CSS"],
+    tech: ["React", "APIs", "LocalStorage", "CSS"],
     bullets: [
       "Led development of a full-stack fitness web app that generates personalized workouts using live weather data.",
       "Implemented weather-based workout and clothing recommendation systems using OpenWeatherMap and WGER APIs.",
@@ -85,31 +84,34 @@ const projects = [
 ];
 
 const projectFilters = [
-  {
-    label: "All",
-    icon: <FaLayerGroup />,
-  },
-  {
-    label: "AI",
-    icon: <FaRobot />,
-  },
-  {
-    label: "Web",
-    icon: <FaGlobe />,
-  },
-  {
-    label: "Embedded",
-    icon: <FaMicrochip />,
-  },
-  {
-    label: "Java",
-    icon: <FaJava />,
-  },
-  {
-    label: "Python",
-    icon: <FaPython />,
-  },
+  { label: "All", icon: <FaLayerGroup /> },
+  { label: "AI", icon: <FaRobot /> },
+  { label: "Web", icon: <FaGlobe /> },
+  { label: "Embedded", icon: <FaMicrochip /> },
+  { label: "Java", icon: <FaJava /> },
+  { label: "Python", icon: <FaPython /> },
 ];
+
+const TerminalBackground = () => {
+  return (
+    <div className="terminal-background" aria-hidden="true">
+      <div className="terminal-line line-one">
+        &gt; initializing portfolio...
+      </div>
+      <div className="terminal-line line-two">
+        &gt; loading projects: success
+      </div>
+      <div className="terminal-line line-three">&gt; api/status: 200 OK</div>
+      <div className="terminal-line line-four">&gt; esp32_link: active</div>
+      <div className="terminal-line line-five">&gt; git push origin main</div>
+      <div className="terminal-line line-six">
+        &gt; stack: ai / web / embedded
+      </div>
+      <div className="terminal-line line-seven">&gt; build completed</div>
+      <div className="terminal-line line-eight">&gt; recruiter_view: ready</div>
+    </div>
+  );
+};
 
 const Hero = () => {
   const [activeSection, setActiveSection] = useState("bio");
@@ -157,10 +159,12 @@ const Hero = () => {
 
   return (
     <div className="hero" onMouseMove={handleHeroMouseMove}>
-      <ParticlesHyperspaceBackground />
+      <TerminalBackground />
 
       <div className="hero-content">
         <div className="left-column">
+          <div className="status-pill">AVAILABLE FOR CO-OP</div>
+
           <h1 className="name">Jagraj Gill</h1>
           <h2 className="school">Computer Science @ SFU</h2>
           <h2 className="internship">SWE Intern @ Savi Finance</h2>
@@ -260,8 +264,7 @@ const Hero = () => {
               especially ones with rich storytelling and world-building. I'm
               also a huge sports fan, whether it's watching UFC or NBA matchups,
               hitting the gym for a lifting session, or playing basketball and
-              soccer with friends. I enjoy staying active, competitive, and
-              energized.
+              soccer with friends.
             </p>
           </div>
         )}
@@ -288,8 +291,7 @@ const Hero = () => {
                 Directed a 2-person team during a 24-hour hackathon, dividing
                 tasks and delivering a working full-stack application under
                 strict time constraints. Designed and deployed REST APIs with
-                Node.js and Express.js to enable real-time data updates and
-                improve system response time.
+                Node.js and Express.js to enable real-time data updates.
               </p>
             </div>
           </div>
