@@ -6,9 +6,15 @@ import ParticlesHyperspaceBackground from "./ParticlesHyperspaceBackground";
 const Hero = () => {
   const [activeSection, setActiveSection] = useState("bio");
 
+  const handleSectionChange = (e, section) => {
+    e.preventDefault();
+    setActiveSection(section);
+  };
+
   return (
     <div className="hero">
       <ParticlesHyperspaceBackground />
+
       <div className="hero-content">
         <div className="left-column">
           <h1 className="name">Jagraj Gill</h1>
@@ -20,27 +26,34 @@ const Hero = () => {
               href="mailto:jsg51@sfu.ca"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Email"
             >
               <FaEnvelope />
             </a>
+
             <a
               href="https://github.com/JagrajG"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub"
             >
               <FaGithub />
             </a>
+
             <a
               href="https://www.linkedin.com/in/jagraj-gill-49392416a/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn"
             >
               <FaLinkedin />
             </a>
+
             <a
-              href="/Jagraj_resume.pdf"
+              href="/Jagraj_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Resume"
             >
               <FaFileAlt />
             </a>
@@ -50,32 +63,28 @@ const Hero = () => {
             <h3>
               <a
                 href="#bio"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setActiveSection("bio");
-                }}
+                className={activeSection === "bio" ? "active-link" : ""}
+                onClick={(e) => handleSectionChange(e, "bio")}
               >
                 Bio
               </a>
             </h3>
+
             <h3>
               <a
                 href="#experience"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setActiveSection("experience");
-                }}
+                className={activeSection === "experience" ? "active-link" : ""}
+                onClick={(e) => handleSectionChange(e, "experience")}
               >
                 Experience
               </a>
             </h3>
+
             <h3>
               <a
                 href="#projects"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setActiveSection("projects");
-                }}
+                className={activeSection === "projects" ? "active-link" : ""}
+                onClick={(e) => handleSectionChange(e, "projects")}
               >
                 Projects
               </a>
@@ -91,6 +100,7 @@ const Hero = () => {
               ICT teacher introduced me to Scratch. From that moment, I knew I
               wanted to pursue a future in technology.
             </p>
+
             <p>
               Before graduating high school, I made the decision to apply to
               Computer Science programs because I knew it was a field I was
@@ -100,48 +110,43 @@ const Hero = () => {
               24-hour sprint of coding, collaboration, and problem solving, and
               it reminded me exactly why I fell in love with computer science.
             </p>
+
             <p>
               In my free time, I love getting lost in immersive RPG games,
               especially ones with rich storytelling and world-building. I'm
-              also a huge sports fan—whether it's watching UFC or NBA matchups,
+              also a huge sports fan, whether it's watching UFC or NBA matchups,
               hitting the gym for a lifting session, or playing basketball and
-              soccer with friends—I enjoy staying active, competitive, and
+              soccer with friends. I enjoy staying active, competitive, and
               energized.
             </p>
           </div>
         )}
 
         {activeSection === "experience" && (
-          <div className="scroll-container">
-            <div className="experience-scroll">
-              <div className="experience-box">
-                <h2>Software Engineering Intern</h2>
-                <h4>Savi Finance — May 2025 to Dec 2025</h4>
-                <p>
-                  During my internship at Savi Finance, I built full-stack
-                  features for a Fintech SaaS platform with over 100 active
-                  users. I unified React and React Native logic with
-                  MongoDB-backed services, reducing release time by 20%. I led
-                  the development of an inline account editing tool using Redux,
-                  cut image load failures by 20% with an AWS S3 image upload
-                  system, and improved login success rates by 45% through UI and
-                  validation enhancements.
-                </p>
-              </div>
+          <div className="experience-scroll">
+            <div className="experience-box">
+              <h2>Software Engineering Intern</h2>
+              <h4>Savi Finance - May 2025 to Dec 2025</h4>
+              <p>
+                Built full-stack features for a fintech SaaS platform with 1000+
+                users. Developed shared React and React Native modules backed by
+                MongoDB services, reducing release cycles by 15%. Integrated AWS
+                S3 image uploads through GraphQL, improved upload reliability,
+                and refactored login UI and validation flows to reduce user
+                login errors by 45%.
+              </p>
+            </div>
 
-              <div className="experience-box">
-                <h2>StormHacks 2024</h2>
-                <h4>SFU Hackathon — May 2024</h4>
-                <p>
-                  Developed RESTful APIs using Node.js and Express.js to enable
-                  real-time data updates, significantly improving system
-                  responsiveness. Deployed and managed MongoDB on a Linux server
-                  to ensure reliable data storage and high uptime. Integrated
-                  dynamic frontend features using React.js to deliver a seamless
-                  and interactive user experience throughout the hackathon
-                  project.
-                </p>
-              </div>
+            <div className="experience-box">
+              <h2>StormHacks 2024</h2>
+              <h4>SFU Hackathon - May 2024</h4>
+              <p>
+                Directed a 2-person team during a 24-hour hackathon, dividing
+                tasks and delivering a working full-stack application under
+                strict time constraints. Designed and deployed REST APIs with
+                Node.js and Express.js to enable real-time data updates and
+                improve system response time.
+              </p>
             </div>
           </div>
         )}
@@ -152,34 +157,39 @@ const Hero = () => {
               <h2>
                 AI Study Pal{" "}
                 <a
-                  href="https://github.com/JagrajG/AI-Study-pal/tree/main"
+                  href="https://github.com/JagrajG"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="project-icon"
+                  aria-label="AI Study Pal GitHub"
                 >
                   <FaGithub />
                 </a>
               </h2>
+
+              <div className="tech-stack">
+                <span>Python</span>
+                <span>FastAPI</span>
+                <span>Gemini API</span>
+                <span>JavaScript</span>
+              </div>
+
               <ul>
                 <li>
                   Built an end-to-end AI study tool that converts PDF documents
-                  into structured flashcard datasets using Python, FastAPI, and
-                  the Gemini API.
+                  into structured flashcard datasets.
                 </li>
                 <li>
-                  Designed a strict JSON schema for AI-generated flashcards with
-                  question-answer pairs to improve output consistency and
-                  reliable parsing.
+                  Designed a strict JSON schema for AI-generated question and
+                  answer pairs.
                 </li>
                 <li>
-                  Implemented Python validation logic to verify data structure,
-                  field integrity, and content quality before displaying
-                  generated flashcards.
+                  Implemented Python validation logic to prevent malformed AI
+                  responses from entering the app.
                 </li>
                 <li>
-                  Developed an interactive HTML, CSS, and JavaScript interface
-                  with flashcard flip and navigation features for real-time
-                  studying.
+                  Developed an interactive flashcard interface with flip and
+                  navigation features.
                 </li>
               </ul>
             </div>
@@ -192,30 +202,35 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="project-icon"
+                  aria-label="Wireless Robotic Arm GitHub"
                 >
                   <FaGithub />
                 </a>
               </h2>
+
+              <div className="tech-stack">
+                <span>ESP32</span>
+                <span>C++</span>
+                <span>Embedded</span>
+                <span>PWM</span>
+              </div>
+
               <ul>
                 <li>
                   Designed and fabricated a 4-DOF robotic arm using ESP32
-                  microcontrollers, MG90S servos, and custom 3D-printed
-                  components.
+                  microcontrollers, MG90S servos, and 3D-printed components.
                 </li>
                 <li>
-                  Developed embedded C++ control software to process analog
-                  sensor input and generate PWM signals for real-time actuator
-                  control.
+                  Developed embedded C++ control software for analog sensor
+                  input and real-time actuator control.
                 </li>
                 <li>
-                  Implemented wireless communication between dual ESP32 devices,
-                  enabling synchronized motion through real-time data
-                  transmission.
+                  Implemented wireless communication between dual ESP32 devices
+                  for synchronized motion.
                 </li>
                 <li>
-                  Built a modular control architecture to support future
-                  expansion, including inverse kinematics and advanced sensor
-                  integration.
+                  Built a modular architecture to support future inverse
+                  kinematics and sensor upgrades.
                 </li>
               </ul>
             </div>
@@ -228,24 +243,31 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="project-icon"
+                  aria-label="Investment Tracker GitHub"
                 >
                   <FaGithub />
                 </a>
               </h2>
+
+              <div className="tech-stack">
+                <span>Java</span>
+                <span>Swing</span>
+                <span>JFreeChart</span>
+                <span>SQLite</span>
+              </div>
+
               <ul>
                 <li>
-                  Built a Java Swing desktop app using JFreeChart to visualize
-                  investment growth through side-by-side charts.
+                  Built a Java Swing desktop app to visualize investment growth
+                  using side-by-side charts.
                 </li>
                 <li>
-                  Engineered portfolio logic to calculate real-time asset
-                  performance using live spot prices, asset quantities, and
-                  historical purchase data.
+                  Engineered portfolio logic to calculate asset performance from
+                  live spot prices and purchase data.
                 </li>
                 <li>
                   Improved reliability with exception handling and input
-                  validation, ensuring consistent chart behavior for dynamic
-                  asset entries.
+                  validation for dynamic asset entries.
                 </li>
               </ul>
             </div>
@@ -258,24 +280,31 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="project-icon"
+                  aria-label="GitFit GitHub"
                 >
                   <FaGithub />
                 </a>
               </h2>
+
+              <div className="tech-stack">
+                <span>React</span>
+                <span>APIs</span>
+                <span>LocalStorage</span>
+                <span>CSS</span>
+              </div>
+
               <ul>
                 <li>
                   Led development of a full-stack fitness web app that generates
-                  personalized workouts based on live weather data and user
-                  fitness goals.
+                  personalized workouts using live weather data.
                 </li>
                 <li>
-                  Implemented weather-based workout and clothing recommendations
-                  using OpenWeatherMap and WGER APIs.
+                  Implemented weather-based workout and clothing recommendation
+                  systems using OpenWeatherMap and WGER APIs.
                 </li>
                 <li>
-                  Built responsive features including city-specific weather
-                  search, step tracking, progress graphs, and a customizable
-                  workout builder.
+                  Built city-specific weather search, step tracking, progress
+                  graphs, and a custom workout builder.
                 </li>
               </ul>
             </div>
@@ -288,22 +317,31 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="project-icon"
+                  aria-label="Pothole Patrol GitHub"
                 >
                   <FaGithub />
                 </a>
               </h2>
+
+              <div className="tech-stack">
+                <span>Node.js</span>
+                <span>Express</span>
+                <span>MongoDB</span>
+                <span>Linux</span>
+              </div>
+
               <ul>
                 <li>
                   Built a full-stack web app for crowdsourcing pothole reports
-                  with real-time tracking to improve civic response.
+                  with real-time status tracking.
                 </li>
                 <li>
-                  Developed RESTful APIs with Node.js and Express to handle
-                  submissions, geolocation, and status updates.
+                  Developed RESTful APIs to handle submissions, geolocation, and
+                  civic issue updates.
                 </li>
                 <li>
-                  Hosted services on a Linux server using MongoDB, maintaining
-                  reliable uptime and low-latency access.
+                  Hosted services on a Linux server using MongoDB for reliable
+                  data storage.
                 </li>
               </ul>
             </div>
@@ -316,18 +354,27 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="project-icon"
+                  aria-label="BMP Viewer GitHub"
                 >
                   <FaGithub />
                 </a>
               </h2>
+
+              <div className="tech-stack">
+                <span>Python</span>
+                <span>Tkinter</span>
+                <span>BMP</span>
+                <span>GUI</span>
+              </div>
+
               <ul>
                 <li>
                   Created a Python GUI tool with Tkinter to inspect and
                   manipulate BMP image files.
                 </li>
                 <li>
-                  Parsed BMP headers manually and supported editing features
-                  including RGB toggling and brightness adjustments.
+                  Parsed BMP headers manually and supported RGB toggling and
+                  brightness adjustments.
                 </li>
               </ul>
             </div>
