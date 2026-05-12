@@ -12,7 +12,6 @@ import {
   FaLayerGroup,
 } from "react-icons/fa";
 import "./Hero.css";
-import ParticlesHyperspaceBackground from "./ParticlesHyperspaceBackground";
 
 const projects = [
   {
@@ -54,7 +53,7 @@ const projects = [
     title: "GitFit",
     github: "https://github.com/CMPT-276-SPRING-2025/final-project-17-sunsets",
     categories: ["Web"],
-    tech: ["React", "APIs", "Cookies", "CSS"],
+    tech: ["React", "APIs", "LocalStorage", "CSS"],
     bullets: [
       "Led development of a full-stack fitness web app that generates personalized workouts using live weather data.",
       "Implemented weather-based workout and clothing recommendation systems using OpenWeatherMap and WGER APIs.",
@@ -85,30 +84,12 @@ const projects = [
 ];
 
 const projectFilters = [
-  {
-    label: "All",
-    icon: <FaLayerGroup />,
-  },
-  {
-    label: "AI",
-    icon: <FaRobot />,
-  },
-  {
-    label: "Web",
-    icon: <FaGlobe />,
-  },
-  {
-    label: "Embedded",
-    icon: <FaMicrochip />,
-  },
-  {
-    label: "Java",
-    icon: <FaJava />,
-  },
-  {
-    label: "Python",
-    icon: <FaPython />,
-  },
+  { label: "All", icon: <FaLayerGroup /> },
+  { label: "AI", icon: <FaRobot /> },
+  { label: "Web", icon: <FaGlobe /> },
+  { label: "Embedded", icon: <FaMicrochip /> },
+  { label: "Java", icon: <FaJava /> },
+  { label: "Python", icon: <FaPython /> },
 ];
 
 const Hero = () => {
@@ -157,8 +138,6 @@ const Hero = () => {
 
   return (
     <div className="hero" onMouseMove={handleHeroMouseMove}>
-      <ParticlesHyperspaceBackground />
-
       <div className="hero-content">
         <div className="left-column">
           <h1 className="name">Jagraj Gill</h1>
@@ -250,18 +229,15 @@ const Hero = () => {
               Computer Science programs because I knew it was a field I was
               truly passionate about and would enjoy studying in depth. In my
               first year at SFU, I attended a hackathon where my team and I
-              built a full-stack web application from scratch. It was an intense
-              24-hour sprint of coding, collaboration, and problem solving, and
-              it reminded me exactly why I fell in love with computer science.
+              built a full-stack web application from scratch. It reminded me
+              exactly why I fell in love with computer science.
             </p>
 
             <p>
               In my free time, I love getting lost in immersive RPG games,
               especially ones with rich storytelling and world-building. I'm
               also a huge sports fan, whether it's watching UFC or NBA matchups,
-              hitting the gym for a lifting session, or playing basketball and
-              soccer with friends. I enjoy staying active, competitive, and
-              energized.
+              hitting the gym, or playing basketball and soccer with friends.
             </p>
           </div>
         )}
@@ -288,8 +264,7 @@ const Hero = () => {
                 Directed a 2-person team during a 24-hour hackathon, dividing
                 tasks and delivering a working full-stack application under
                 strict time constraints. Designed and deployed REST APIs with
-                Node.js and Express.js to enable real-time data updates and
-                improve system response time.
+                Node.js and Express.js to enable real-time data updates.
               </p>
             </div>
           </div>
