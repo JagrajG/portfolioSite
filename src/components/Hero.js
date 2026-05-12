@@ -274,10 +274,10 @@ const Hero = () => {
             </p>
 
             <p>
-              In my free time, I love getting lost in immersive RPG games,
-              especially ones with rich storytelling and world-building. I'm
-              also a huge sports fan, whether it's watching UFC or NBA matchups,
-              hitting the gym, or playing basketball and soccer with friends.
+              In my free time, I train Brazilian jiu-jitsu and kickboxing, which
+              keep me disciplined, competitive, and focused. Outside of
+              training, I enjoy listening to music, playing piano, and watching
+              sports.
             </p>
           </div>
         )}
