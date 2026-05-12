@@ -28,9 +28,9 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 70px;
+  gap: 50px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
   box-sizing: border-box;
@@ -103,10 +103,18 @@
 .experience-scroll,
 .project-scroll {
   width: 100%;
-  max-width: 640px;
   margin-top: 60px;
   flex-shrink: 0;
   box-sizing: border-box;
+}
+
+.bio-box,
+.experience-scroll {
+  max-width: 640px;
+}
+
+.project-scroll {
+  max-width: 900px;
 }
 
 .bio-box {
@@ -125,20 +133,47 @@
 /* Scroll Areas */
 .experience-scroll,
 .project-scroll {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
   max-height: 750px;
   overflow-y: auto;
-  padding-right: 5px;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  padding-right: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(135, 206, 250, 0.75) rgba(255, 255, 255, 0.08);
 }
 
 .experience-scroll::-webkit-scrollbar,
 .project-scroll::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
+  width: 8px;
+}
+
+.experience-scroll::-webkit-scrollbar-track,
+.project-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+}
+
+.experience-scroll::-webkit-scrollbar-thumb,
+.project-scroll::-webkit-scrollbar-thumb {
+  background: rgba(135, 206, 250, 0.75);
+  border-radius: 999px;
+}
+
+.experience-scroll::-webkit-scrollbar-thumb:hover,
+.project-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(135, 206, 250, 1);
+}
+
+/* Experience Default Layout */
+.experience-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Project Default Layout */
+.project-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* Cards */
@@ -199,10 +234,9 @@
   transform: scale(1.2);
 }
 
-/* Desktop Experience and Project Section Cleanup */
+/* Desktop Experience and Project Styling */
 @media (min-width: 901px) {
-  .experience-scroll,
-  .project-scroll {
+  .experience-scroll {
     gap: 28px;
     max-width: 680px;
     padding: 4px 12px 4px 4px;
@@ -226,10 +260,6 @@
     font-size: 1.65rem;
   }
 
-  .project-box h2 {
-    font-size: 1.45rem;
-  }
-
   .experience-box h4,
   .project-box h4 {
     color: #87cefa;
@@ -243,10 +273,67 @@
     margin: 0;
   }
 
+  /* Desktop Project Grid */
+  .project-scroll {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 900px;
+    max-height: 750px;
+    padding: 4px 12px 4px 4px;
+    overflow-y: auto;
+  }
+
+  .project-box {
+    min-height: 260px;
+    padding: 22px 24px;
+  }
+
+  .project-box h2 {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+
+  .project-box ul {
+    padding-left: 18px;
+    margin: 0;
+  }
+
   .project-box li {
     color: #e6e6e6;
-    line-height: 1.7;
+    font-size: 0.92rem;
+    line-height: 1.55;
     margin-bottom: 8px;
+  }
+}
+
+/* Medium Desktop / Laptop */
+@media (max-width: 1200px) and (min-width: 901px) {
+  .hero-content {
+    gap: 36px;
+    padding: 0 20px;
+  }
+
+  .left-column {
+    max-width: 340px;
+  }
+
+  .name {
+    font-size: 3rem;
+  }
+
+  .school,
+  .internship {
+    font-size: 1.25rem;
+  }
+
+  .project-scroll {
+    max-width: 760px;
+  }
+
+  .project-box {
+    min-height: 280px;
   }
 }
 
@@ -344,6 +431,8 @@
 
   .experience-scroll,
   .project-scroll {
+    display: flex;
+    flex-direction: column;
     max-height: none;
     overflow-y: visible;
   }
@@ -377,6 +466,10 @@
   .project-box h4 {
     font-size: 0.95rem;
     margin-bottom: 10px;
+  }
+
+  .project-box {
+    min-height: auto;
   }
 
   .project-box ul {
