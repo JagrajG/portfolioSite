@@ -16,7 +16,7 @@
   inset: 0;
   background: radial-gradient(
     circle at center,
-    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.25),
     transparent 70%
   );
   z-index: 0;
@@ -28,7 +28,7 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 80px;
+  gap: 70px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -103,7 +103,7 @@
 .experience-scroll,
 .project-scroll {
   width: 100%;
-  max-width: 600px;
+  max-width: 640px;
   margin-top: 60px;
   flex-shrink: 0;
   box-sizing: border-box;
@@ -183,6 +183,10 @@
   list-style-type: disc;
 }
 
+.project-box li {
+  margin-bottom: 6px;
+}
+
 .project-icon {
   margin-left: 10px;
   color: #87cefa;
@@ -193,6 +197,57 @@
 
 .project-icon:hover {
   transform: scale(1.2);
+}
+
+/* Desktop Experience and Project Section Cleanup */
+@media (min-width: 901px) {
+  .experience-scroll,
+  .project-scroll {
+    gap: 28px;
+    max-width: 680px;
+    padding: 4px 12px 4px 4px;
+  }
+
+  .experience-box,
+  .project-box {
+    background: rgba(10, 10, 35, 0.62);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+  }
+
+  .experience-box h2,
+  .project-box h2 {
+    color: #ffffff;
+    margin-bottom: 6px;
+  }
+
+  .experience-box h2 {
+    font-size: 1.65rem;
+  }
+
+  .project-box h2 {
+    font-size: 1.45rem;
+  }
+
+  .experience-box h4,
+  .project-box h4 {
+    color: #87cefa;
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+
+  .experience-box p {
+    color: #e6e6e6;
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  .project-box li {
+    color: #e6e6e6;
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
 }
 
 /* Tablet */
