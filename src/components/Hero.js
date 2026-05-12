@@ -88,7 +88,7 @@ const experiences = [
     title: "Software Engineering Intern",
     subtitle: "Savi Finance - May 2025 to Dec 2025",
     description:
-      "Built full-stack features for a fintech SaaS platform with 1000+ users. Developed shared React and React Native modules backed by MongoDB services, reducing release cycles by 15%. Integrated AWS S3 image uploads through GraphQL, improved upload reliability, and refactored login UI and validation flows to reduce user login errors by 45%.",
+      "Built full-stack features for a fintech SaaS platform with 1000+ users. Developed an AI-powered task scheduling system that ranked tasks by priority and immediacy, reducing manual planning time by 10%. Engineered shared React and React Native modules backed by MongoDB services, reducing release cycles by 15%. Integrated AWS S3 image uploads through GraphQL, improved upload reliability, and refactored login UI and validation flows to reduce user login errors by 45%.",
   },
   {
     title: "StormHacks 2024",
