@@ -1,5 +1,16 @@
 import React, { useState } from "react";
-import { FaEnvelope, FaGithub, FaLinkedin, FaFileAlt } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaFileAlt,
+  FaRobot,
+  FaGlobe,
+  FaMicrochip,
+  FaJava,
+  FaPython,
+  FaLayerGroup,
+} from "react-icons/fa";
 import "./Hero.css";
 import ParticlesHyperspaceBackground from "./ParticlesHyperspaceBackground";
 
@@ -43,7 +54,7 @@ const projects = [
     title: "GitFit",
     github: "https://github.com/CMPT-276-SPRING-2025/final-project-17-sunsets",
     categories: ["Web"],
-    tech: ["React", "APIs", "LocalStorage", "CSS"],
+    tech: ["React", "APIs", "Cookies", "CSS"],
     bullets: [
       "Led development of a full-stack fitness web app that generates personalized workouts using live weather data.",
       "Implemented weather-based workout and clothing recommendation systems using OpenWeatherMap and WGER APIs.",
@@ -73,7 +84,32 @@ const projects = [
   },
 ];
 
-const projectFilters = ["All", "AI", "Web", "Embedded", "Java", "Python"];
+const projectFilters = [
+  {
+    label: "All",
+    icon: <FaLayerGroup />,
+  },
+  {
+    label: "AI",
+    icon: <FaRobot />,
+  },
+  {
+    label: "Web",
+    icon: <FaGlobe />,
+  },
+  {
+    label: "Embedded",
+    icon: <FaMicrochip />,
+  },
+  {
+    label: "Java",
+    icon: <FaJava />,
+  },
+  {
+    label: "Python",
+    icon: <FaPython />,
+  },
+];
 
 const Hero = () => {
   const [activeSection, setActiveSection] = useState("bio");
@@ -105,7 +141,7 @@ const Hero = () => {
     const rotateY = (x / rect.width - 0.5) * 10;
     const rotateX = (y / rect.height - 0.5) * -10;
 
-    card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.015)`;
+    card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px) scale(1.006)`;
   };
 
   const handleProjectMouseLeave = (e) => {
@@ -264,16 +300,17 @@ const Hero = () => {
             <div className="project-filters">
               {projectFilters.map((filter) => (
                 <button
-                  key={filter}
+                  key={filter.label}
                   type="button"
                   className={
-                    activeProjectFilter === filter
+                    activeProjectFilter === filter.label
                       ? "filter active-filter"
                       : "filter"
                   }
-                  onClick={() => setActiveProjectFilter(filter)}
+                  onClick={() => setActiveProjectFilter(filter.label)}
                 >
-                  {filter}
+                  <span className="filter-icon">{filter.icon}</span>
+                  <span>{filter.label}</span>
                 </button>
               ))}
             </div>
