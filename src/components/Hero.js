@@ -92,6 +92,18 @@ const projectFilters = [
   { label: "Python", icon: <FaPython /> },
 ];
 
+const LiquidRadarBackground = () => {
+  return (
+    <div className="design-background" aria-hidden="true">
+      <div className="liquid-blob blob-one"></div>
+      <div className="liquid-blob blob-two"></div>
+      <div className="liquid-blob blob-three"></div>
+      <div className="liquid-blob blob-four"></div>
+      <div className="glass-noise"></div>
+    </div>
+  );
+};
+
 const Hero = () => {
   const [activeSection, setActiveSection] = useState("bio");
   const [activeProjectFilter, setActiveProjectFilter] = useState("All");
@@ -138,6 +150,8 @@ const Hero = () => {
 
   return (
     <div className="hero" onMouseMove={handleHeroMouseMove}>
+      <LiquidRadarBackground />
+
       <div className="hero-content">
         <div className="left-column">
           <h1 className="name">Jagraj Gill</h1>
@@ -216,7 +230,7 @@ const Hero = () => {
         </div>
 
         {activeSection === "bio" && (
-          <div className="bio-box">
+          <div className="bio-box glass-card">
             <p>
               👋 I'm a third-year Computer Science major at Simon Fraser
               University. My passion for programming began in Grade 5 when my
@@ -244,7 +258,7 @@ const Hero = () => {
 
         {activeSection === "experience" && (
           <div className="experience-scroll">
-            <div className="experience-box">
+            <div className="experience-box glass-card">
               <h2>Software Engineering Intern</h2>
               <h4>Savi Finance - May 2025 to Dec 2025</h4>
               <p>
@@ -257,7 +271,7 @@ const Hero = () => {
               </p>
             </div>
 
-            <div className="experience-box">
+            <div className="experience-box glass-card">
               <h2>StormHacks 2024</h2>
               <h4>SFU Hackathon - May 2024</h4>
               <p>
@@ -293,7 +307,7 @@ const Hero = () => {
             <div className="project-scroll">
               {filteredProjects.map((project) => (
                 <div
-                  className="project-box"
+                  className="project-box glass-card"
                   key={project.title}
                   onMouseMove={handleProjectMouseMove}
                   onMouseLeave={handleProjectMouseLeave}
