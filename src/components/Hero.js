@@ -213,7 +213,7 @@ const Hero = () => {
             </a>
 
             <a
-              href="/Jagraj_Resume.pdf"
+              href="/Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Resume"
