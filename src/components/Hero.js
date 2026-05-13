@@ -194,6 +194,7 @@ const Hero = () => {
           <h1 className="name">Jagraj Gill</h1>
           <h2 className="school">Computing Science @ SFU</h2>
           <h2 className="internship">SWE Intern @ Savi Finance</h2>
+          <h2 class="location">Vancouver, BC</h2>
 
           <div className="icons">
             <a

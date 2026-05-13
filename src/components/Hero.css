@@ -1309,3 +1309,11 @@ body,
     padding: 16px;
   }
 }
+
+.location {
+  font-size: 1.15rem;
+  margin: 8px 0 0;
+  font-weight: 500;
+  color: #c9d7e5;
+  letter-spacing: 0.02em;
+}
