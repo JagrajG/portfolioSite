@@ -15,10 +15,21 @@ import "./Hero.css";
 
 const projects = [
   {
+    title: "IoT Climate Monitoring Dashboard",
+    github: "https://github.com/JagrajG/ESP32-Temp-Monitor",
+    categories: ["Embedded", "Web"],
+    tech: ["C", "ESP-IDF", "FastAPI", "SQLite", "JavaScript", "HTML", "CSS"],
+    bullets: [
+      "Built an end-to-end IoT climate monitoring system integrating microcontroller firmware, I2C sensor communication, OLED display output, REST APIs, SQLite storage, and a live web dashboard.",
+      "Developed ESP-IDF firmware to collect temperature and humidity readings, update an OLED interface, and transmit structured JSON data to a FastAPI backend over Wi-Fi.",
+      "Engineered 24-hour climate tracking with SQLite and REST endpoints, enabling a JavaScript dashboard to display live readings, device status, and trend visualizations.",
+    ],
+  },
+  {
     title: "AI Study Pal",
     github: "https://github.com/JagrajG",
     categories: ["AI", "Web"],
-    tech: ["Python", "FastAPI", "Gemini API", "JavaScript"],
+    tech: ["Python", "FastAPI", "Gemini API", "HTML", "CSS", "JavaScript"],
     bullets: [
       "Built an end-to-end AI study tool that converts PDF documents into structured flashcard datasets.",
       "Designed a strict JSON schema for AI-generated question and answer pairs.",
@@ -30,23 +41,23 @@ const projects = [
     title: "Wireless 4-DOF Robotic Arm",
     github: "https://github.com/JagrajG",
     categories: ["Embedded"],
-    tech: ["ESP32", "C++", "Embedded", "PWM"],
+    tech: ["ESP32", "C", "Embedded", "PWM"],
     bullets: [
-      "Designed and fabricated a 4-DOF robotic arm using ESP32 microcontrollers, MG90S servos, and 3D-printed components.",
-      "Developed embedded C++ control software for analog sensor input and real-time actuator control.",
-      "Implemented wireless communication between dual ESP32 devices for synchronized motion.",
-      "Built a modular architecture to support future inverse kinematics and sensor upgrades.",
+      "Designed and fabricated a 4-DOF robotic arm using ESP32 microcontrollers, servos, and custom 3D-printed components.",
+      "Developed embedded C software to process analog inputs and generate PWM signals for real-time actuator control.",
+      "Implemented wireless control between dual ESP32 devices, enabling synchronized motion through real-time transmission.",
+      "Built a modular control architecture supporting future inverse kinematics and sensor integration.",
     ],
   },
   {
     title: "Investment Tracker",
     github: "https://github.com/JagrajG/InvestmentTracker",
     categories: ["Java"],
-    tech: ["Java", "Swing", "JFreeChart", "SQLite"],
+    tech: ["Java", "Swing", "JFreeChart"],
     bullets: [
-      "Built a Java Swing desktop app to visualize investment growth using side-by-side charts.",
-      "Engineered portfolio logic to calculate asset performance from live spot prices and purchase data.",
-      "Improved reliability with exception handling and input validation for dynamic asset entries.",
+      "Built a Java Swing desktop app to visualize investment growth using side-by-side JFreeChart graphs.",
+      "Engineered portfolio logic to calculate asset performance using spot prices, quantities, and historical purchase data.",
+      "Improved reliability through exception handling and input validation, ensuring consistent behavior for dynamic entries.",
     ],
   },
   {
@@ -181,7 +192,7 @@ const Hero = () => {
       <div className="hero-content">
         <div className="left-column">
           <h1 className="name">Jagraj Gill</h1>
-          <h2 className="school">Computer Science @ SFU</h2>
+          <h2 className="school">Computing Science @ SFU</h2>
           <h2 className="internship">SWE Intern @ Savi Finance</h2>
 
           <div className="icons">
@@ -258,7 +269,7 @@ const Hero = () => {
         {activeSection === "bio" && (
           <div className="bio-box glass-card">
             <p>
-              👋 I'm a third-year Computer Science major at Simon Fraser
+              👋 I'm a third-year Computing Science major at Simon Fraser
               University. My passion for programming began in Grade 5 when my
               ICT teacher introduced me to Scratch. From that moment, I knew I
               wanted to pursue a future in technology.
@@ -266,11 +277,11 @@ const Hero = () => {
 
             <p>
               Before graduating high school, I made the decision to apply to
-              Computer Science programs because I knew it was a field I was
+              Computing Science programs because I knew it was a field I was
               truly passionate about and would enjoy studying in depth. In my
               first year at SFU, I attended a hackathon where my team and I
               built a full-stack web application from scratch. It reminded me
-              exactly why I fell in love with computer science.
+              exactly why I fell in love with computing science.
             </p>
 
             <p>
