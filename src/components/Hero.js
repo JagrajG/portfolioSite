@@ -15,6 +15,17 @@ import "./Hero.css";
 
 const projects = [
   {
+    title: "Memory Allocator",
+    github: "https://github.com/JagrajG/Memory-Allocator",
+    categories: ["C"],
+    tech: ["C,"],
+    bullets: [
+      "Built a fixed-size memory allocator in C that manages allocations inside a 4096-byte heap using block headers, pointer arithmetic, and a linked list of memory blocks.",
+      "Implemented custom allocation and free operations with first-fit block reuse, reducing unnecessary heap growth by reusing previously freed memory.",
+      "Developed a heap inspection utility that prints block sizes, allocation status, and linked-list structure, improving visibility into memory usage and allocator behavior.",
+    ],
+  },
+  {
     title: "IoT Climate Monitoring Dashboard",
     github: "https://github.com/JagrajG/ESP32-Temp-Monitor",
     categories: ["Embedded", "Web"],
@@ -27,7 +38,7 @@ const projects = [
   },
   {
     title: "AI Study Pal",
-    github: "https://github.com/JagrajG",
+    github: "https://github.com/JagrajG/AI-Study-pal",
     categories: ["AI", "Web"],
     tech: ["Python", "FastAPI", "Gemini API", "HTML", "CSS", "JavaScript"],
     bullets: [
@@ -39,7 +50,7 @@ const projects = [
   },
   {
     title: "Wireless 4-DOF Robotic Arm",
-    github: "https://github.com/JagrajG",
+    github: "https://github.com/JagrajG/ESP-32-Arm",
     categories: ["Embedded"],
     tech: ["ESP32", "C", "Embedded", "PWM"],
     bullets: [
