@@ -18,7 +18,7 @@ const projects = [
     title: "Memory Allocator",
     github: "https://github.com/JagrajG/Memory-Allocator",
     categories: ["C"],
-    tech: ["C,"],
+    tech: ["C"],
     bullets: [
       "Built a fixed-size memory allocator in C that manages allocations inside a 4096-byte heap using block headers, pointer arithmetic, and a linked list of memory blocks.",
       "Implemented custom allocation and free operations with first-fit block reuse, reducing unnecessary heap growth by reusing previously freed memory.",
