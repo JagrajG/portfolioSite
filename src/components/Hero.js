@@ -10,6 +10,7 @@ import {
   FaJava,
   FaPython,
   FaLayerGroup,
+  FaYoutube,
 } from "react-icons/fa";
 import "./Hero.css";
 
@@ -39,6 +40,7 @@ const projects = [
   {
     title: "AI Study Pal",
     github: "https://github.com/JagrajG/AI-Study-pal",
+    demo: "https://youtu.be/62ppEQOdBvI",
     categories: ["AI", "Web"],
     tech: ["Python", "FastAPI", "Gemini API", "HTML", "CSS", "JavaScript"],
     bullets: [
@@ -364,6 +366,17 @@ const Hero = () => {
                     >
                       <FaGithub />
                     </a>
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-icon"
+                        aria-label={`${project.title} Demo Video`}
+                      >
+                        <FaYoutube />
+                      </a>
+                    )}
                   </h2>
 
                   <div className="tech-stack">
