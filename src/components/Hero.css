@@ -975,7 +975,7 @@ body,
     filter 0.2s ease;
 }
 .project-icon[aria-label*="Demo Video"] svg {
-  font-size: 1.35rem;
+  font-size: 1.5rem;
 }
 
 .project-icon:hover {
