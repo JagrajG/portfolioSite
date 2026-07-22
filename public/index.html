@@ -4,11 +4,36 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/tree.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#12101f" />
+    <style>
+      /* Critical inline paint: matches the title screen's gradient
+         exactly (see .title-screen / html,body in index.css), so the
+         very first frame — before the CSS bundle or React has loaded —
+         already looks right instead of flashing flat black. */
+      html,
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at 50% 0%, oklch(65% 0.2 25), transparent 65%),
+          linear-gradient(
+            to bottom,
+            oklch(38% 0.15 25) 0%,
+            oklch(38% 0.15 25) 22%,
+            oklch(48% 0.13 95) 100%
+          );
+        background-attachment: fixed;
+      }
+    </style>
+    <meta
+      name="description"
+      content="Jagraj Gill — Computing Science student at SFU shipping across firmware, full-stack web, and AI. Previously SWE intern at Savi Finance."
+    />
 
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Jost:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 

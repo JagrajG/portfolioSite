@@ -1,13 +1,143 @@
-body {
+:root {
+  /* Color — 8-bit / NES-era master palette. Full palette strategy:
+     four named accent roles, each with a dedicated job, against a
+     dark CRT-void base. Anchor: the NES PPU master palette. */
+  --color-void: oklch(15% 0.03 260);
+  --color-void-deep: oklch(8% 0.02 260);
+  --color-void-light: oklch(30% 0.045 260);
+  --color-panel: oklch(20% 0.035 260);
+  --color-panel-raised: oklch(24% 0.035 260);
+
+  --color-ink: oklch(94% 0.01 260);
+  --color-ink-soft: oklch(78% 0.02 260);
+  --color-ink-dark: oklch(18% 0.03 260);
+
+  /* Accent roles: cyan = primary/links/UI cursor, gold = highlight/CTA,
+     magenta = tags/secondary accent, green = success/active-state. */
+  --color-cyan: oklch(75% 0.15 220);
+  --color-cyan-shadow: oklch(42% 0.11 220);
+  --color-gold: oklch(85% 0.16 95);
+  --color-gold-shadow: oklch(48% 0.13 95);
+  --color-magenta: oklch(65% 0.2 25);
+  --color-magenta-shadow: oklch(38% 0.15 25);
+  --color-green: oklch(75% 0.18 145);
+  --color-green-shadow: oklch(42% 0.13 145);
+
+  /* Spacing — 4pt base scale, snapped to the pixel grid */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  /* Type — pixel display font reserved for short strings (it's ~1.2em
+     per-character wide; long text in it overflows fast). Body carries
+     every paragraph, in a clean geometric sans, so the aesthetic never
+     costs legibility. */
+  --font-pixel: "Press Start 2P", monospace;
+  --font-body: "Jost", "Segoe UI", sans-serif;
+
+  --text-pixel-label: 0.625rem;
+  --text-pixel-heading: clamp(0.75rem, 0.7rem + 0.4vw, 1rem);
+  --text-pixel-name: clamp(1rem, 0.85rem + 1vw, 1.5rem);
+
+  --text-xs: clamp(0.75rem, 0.72rem + 0.1vw, 0.8125rem);
+  --text-sm: clamp(0.9rem, 0.87rem + 0.15vw, 0.9375rem);
+  --text-base: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+  --text-lg: clamp(1.125rem, 1.05rem + 0.3vw, 1.3125rem);
+  --text-xl: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);
+
+  /* Motion */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --steps-sprite: steps(2, jump-none);
+
+  /* z-index scale. Note: --z-content (hero-content / title-screen /
+     game-over-cta) each paint an opaque background and establish their
+     own stacking context, so --z-ambient must sit ABOVE --z-content —
+     a lower-z sibling stacking context can never show through a
+     higher one's opaque paint, no matter what z-index is used inside it. */
+  --z-background: 0;
+  --z-content: 1;
+  --z-ambient: 2;
+  --z-dock: 3;
+  --z-sticky: 10;
+  --z-tooltip: 20;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+}
+
+/* html/body carry the SAME gradient recipe as .title-screen (not just a
+   flat void color) for two reasons: it's the canvas behind the elastic
+   overscroll bounce at the top of the page, and — more importantly —
+   it's what paints first, before the CSS bundle or React has loaded.
+   Matching it exactly here (and again inline in index.html for the very
+   first paint) means there's no flash from black to color once the real
+   title screen mounts; it's the same gradient the whole time. */
+html {
+  background:
+    radial-gradient(circle at 50% 0%, var(--color-magenta), transparent 65%),
+    linear-gradient(
+      to bottom,
+      var(--color-magenta-shadow) 0%,
+      var(--color-magenta-shadow) 22%,
+      var(--color-gold-shadow) 100%
+    );
+  /* A fast fling or a hard scroll-up/down at the very top or bottom of
+     the page triggers the browser's elastic overscroll (rubber-band)
+     effect, which stretches past the document bounds and reveals raw
+     canvas behind the fixed background layers — a flash of flat,
+     uncolored space breaking the illusion. Disabling scroll chaining on
+     the root scroller removes that bounce entirely instead of trying to
+     patch what briefly shows during it. */
+  overscroll-behavior-y: none;
+}
+
+body {
+  background:
+    radial-gradient(circle at 50% 0%, var(--color-magenta), transparent 65%),
+    linear-gradient(
+      to bottom,
+      var(--color-magenta-shadow) 0%,
+      var(--color-magenta-shadow) 22%,
+      var(--color-gold-shadow) 100%
+    );
+  background-attachment: fixed;
+  overscroll-behavior-y: none;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: 500;
+  /* Light text on a dark background reads lighter than it is; compensate
+     on line-height and letter-spacing rather than just bumping weight. */
+  line-height: 1.65;
+  letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* Accessibility: every animation gets a reduced-motion fallback. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
