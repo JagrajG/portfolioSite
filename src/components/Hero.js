@@ -238,14 +238,7 @@ const SWORD_ROWS = [
   "..#.#..",
 ];
 
-const COIN_ROWS = [
-  ".####.",
-  "##..##",
-  "#.##.#",
-  "#.##.#",
-  "##..##",
-  ".####.",
-];
+const COIN_ROWS = [".####.", "##..##", "#.##.#", "#.##.#", "##..##", ".####."];
 
 const CLOUD_ROWS = [
   "..####......",
@@ -281,7 +274,9 @@ const pixelShadow = (rows, colorVar) => {
   rows.forEach((row, y) => {
     row.split("").forEach((cell, x) => {
       if (cell === "#") {
-        dots.push(`${x * PIXEL_UNIT}px ${y * PIXEL_UNIT}px 0 0 var(${colorVar})`);
+        dots.push(
+          `${x * PIXEL_UNIT}px ${y * PIXEL_UNIT}px 0 0 var(${colorVar})`,
+        );
       }
     });
   });
@@ -655,31 +650,34 @@ const Hero = () => {
       <main className="hero-content">
         <section className="content-section content-section--bio" id="bio">
           <SectionClouds colorVar="--color-cyan" gemColorVar="--color-gold" />
-          <SectionMascot rows={FLOPPY_ROWS} colorVar="--color-cyan" side="right" />
+          <SectionMascot
+            rows={FLOPPY_ROWS}
+            colorVar="--color-cyan"
+            side="right"
+          />
           <div className="content-section-inner">
             <SectionBanner label="BIO.TXT" accent="cyan" />
             <div className="dialogue-box pixel-panel panel-enter">
               <p>
                 Hey there! I'm a third-year Computing Science major at Simon
                 Fraser University. My passion for programming began in Grade 5
-                when my ICT teacher introduced me to Scratch. From that
-                moment, I knew I wanted to pursue a future in technology.
+                when my ICT teacher introduced me to Scratch. From that moment,
+                I knew I wanted to pursue a future in technology.
               </p>
 
               <p>
                 Before graduating high school, I made the decision to apply to
-                Computing Science programs because I knew it was a field I
-                was truly passionate about and would enjoy studying in depth.
-                In my first year at SFU, I attended a hackathon where my team
-                and I built a full-stack web application from scratch. It
-                reminded me exactly why I fell in love with computing
-                science.
+                Computing Science programs because I knew it was a field I was
+                truly passionate about and would enjoy studying in depth. In my
+                first year at SFU, I attended a hackathon where my team and I
+                built a full-stack web application from scratch. It reminded me
+                exactly why I fell in love with computing science.
               </p>
 
               <p>
                 In my free time, I train Brazilian jiu-jitsu and kickboxing,
-                which keep me disciplined, competitive, and focused. Outside
-                of training, I enjoy listening to music, playing piano, and
+                which keep me disciplined, competitive, and focused. Outside of
+                training, I enjoy listening to music, playing piano, and
                 watching sports.
                 <span className="dialogue-cursor" aria-hidden="true">
                   &#9608;
@@ -693,10 +691,17 @@ const Hero = () => {
           className="content-section content-section--experience"
           id="experience"
         >
-          <SectionClouds colorVar="--color-magenta" gemColorVar="--color-cyan" />
-          <SectionMascot rows={SWORD_ROWS} colorVar="--color-magenta" side="left" />
+          <SectionClouds
+            colorVar="--color-magenta"
+            gemColorVar="--color-cyan"
+          />
+          <SectionMascot
+            rows={SWORD_ROWS}
+            colorVar="--color-magenta"
+            side="left"
+          />
           <div className="content-section-inner">
-            <SectionBanner label="QUEST LOG" accent="magenta" />
+            <SectionBanner label="EXPERIENCE" accent="magenta" />
             <div className="quest-log">
               {experiences.map((experience, index) => (
                 <div
@@ -720,10 +725,17 @@ const Hero = () => {
           className="content-section content-section--projects"
           id="projects"
         >
-          <SectionClouds colorVar="--color-gold" gemColorVar="--color-magenta" />
-          <SectionMascot rows={COIN_ROWS} colorVar="--color-gold" side="right" />
+          <SectionClouds
+            colorVar="--color-gold"
+            gemColorVar="--color-magenta"
+          />
+          <SectionMascot
+            rows={COIN_ROWS}
+            colorVar="--color-gold"
+            side="right"
+          />
           <div className="content-section-inner">
-            <SectionBanner label="LEVEL SELECT" accent="gold" />
+            <SectionBanner label="PROJECTS" accent="gold" />
             <div className="level-select">
               <div className="project-filters-row">
                 <div className="project-filters">
@@ -750,61 +762,61 @@ const Hero = () => {
               </div>
 
               <div className="project-grid" key={activeProjectFilter}>
-              {filteredProjects.map((project, index) => (
-                <div
-                  className="stage-tile pixel-panel pixel-panel--gold panel-enter"
-                  style={{ "--panel-delay": `${index * 70}ms` }}
-                  key={project.title}
-                >
-                  <div className="stage-tile-badges" aria-hidden="true">
-                    {project.categories.map((cat) => (
-                      <span className="stage-badge" key={cat}>
-                        {categoryIcons[cat]}
-                      </span>
-                    ))}
-                  </div>
+                {filteredProjects.map((project, index) => (
+                  <div
+                    className="stage-tile pixel-panel pixel-panel--gold panel-enter"
+                    style={{ "--panel-delay": `${index * 70}ms` }}
+                    key={project.title}
+                  >
+                    <div className="stage-tile-badges" aria-hidden="true">
+                      {project.categories.map((cat) => (
+                        <span className="stage-badge" key={cat}>
+                          {categoryIcons[cat]}
+                        </span>
+                      ))}
+                    </div>
 
-                  <h3>
-                    {project.title}{" "}
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-icon-link"
-                      aria-label={`${project.title} GitHub`}
-                    >
-                      <FaGithub />
-                    </a>
-                    {project.demo && (
+                    <h3>
+                      {project.title}{" "}
                       <a
-                        href={project.demo}
+                        href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="project-icon-link"
-                        aria-label={`${project.title} Demo Video`}
+                        aria-label={`${project.title} GitHub`}
                       >
-                        <FaYoutube />
+                        <FaGithub />
                       </a>
-                    )}
-                  </h3>
+                      {project.demo && (
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="project-icon-link"
+                          aria-label={`${project.title} Demo Video`}
+                        >
+                          <FaYoutube />
+                        </a>
+                      )}
+                    </h3>
 
-                  <div className="tech-stack">
-                    {project.tech.map((tech) => (
-                      <span className="tech-pill" key={tech}>
-                        {tech}
-                      </span>
-                    ))}
+                    <div className="tech-stack">
+                      {project.tech.map((tech) => (
+                        <span className="tech-pill" key={tech}>
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <ul>
+                      {project.bullets.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
+                      ))}
+                    </ul>
                   </div>
-
-                  <ul>
-                    {project.bullets.map((bullet) => (
-                      <li key={bullet}>{bullet}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
           </div>
         </section>
       </main>
