@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jagraj Gill — Concept 5: Scrapbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Karla:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #3e6fe0;
+    --card: #ffffff;
+    --ink: #16181f;
+    --pink: #d41f72;
+    --yellow: #ffd23f;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Karla", sans-serif;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: clamp(24px, 5vw, 56px) clamp(18px, 4vw, 40px); }
+
+  header.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: clamp(30px, 6vw, 56px);
+  }
+  .mark {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: #fff;
+  }
+  .sticker {
+    background: var(--yellow);
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 8px 16px;
+    border-radius: 999px;
+    transform: rotate(-4deg);
+    display: inline-block;
+  }
+
+  .hero {
+    position: relative;
+    background: var(--card);
+    border-radius: 28px;
+    padding: clamp(32px, 6vw, 64px);
+    transform: rotate(-1deg);
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.35);
+    margin-bottom: clamp(50px, 8vw, 80px);
+  }
+  h1 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.4rem, 6.5vw, 4.6rem);
+    line-height: 1.03;
+    letter-spacing: -0.01em;
+    margin: 0 0 20px;
+    text-wrap: balance;
+  }
+  h1 .hl {
+    background: var(--yellow);
+    padding: 0 10px;
+    border-radius: 6px;
+    display: inline-block;
+    transform: rotate(-1.5deg);
+  }
+  .sub {
+    font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+    max-width: 46ch;
+    margin: 0 0 30px;
+    text-wrap: pretty;
+  }
+  .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-pink {
+    background: var(--pink);
+    color: #fff;
+    font-weight: 700;
+    padding: 14px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    display: inline-block;
+    transform: rotate(-1deg);
+    transition: transform 150ms cubic-bezier(0.25,1,0.5,1);
+  }
+  .btn-pink:hover { transform: rotate(-1deg) translateY(-3px); }
+  .btn-pink:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  .btn-outline {
+    border: 2px solid var(--ink);
+    color: var(--ink);
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-outline:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; }
+
+  .tape {
+    position: absolute;
+    top: -14px;
+    left: 40px;
+    width: 90px;
+    height: 28px;
+    background: rgba(255, 210, 63, 0.85);
+    transform: rotate(-6deg);
+  }
+
+  .board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: clamp(20px, 3vw, 32px);
+  }
+  .card {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 26px 24px;
+    box-shadow: 0 20px 40px -18px rgba(0,0,0,0.3);
+  }
+  .card:nth-child(1) { transform: rotate(-2deg); }
+  .card:nth-child(2) { transform: rotate(1.5deg); }
+  .card:nth-child(3) { transform: rotate(-1deg); }
+  .card:nth-child(4) { transform: rotate(2deg); }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--pink);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+  .card h2 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+  .card p { font-size: 0.92rem; margin: 0; color: #3a3d47; }
+
+  footer {
+    text-align: center;
+    color: #fff;
+    margin-top: clamp(50px, 7vw, 80px);
+    font-weight: 500;
+  }
+  footer a { color: #fff; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <span class="mark">jagraj gill</span>
+      <span class="sticker">open to work ✦</span>
+    </header>
+
+    <section class="hero">
+      <div class="tape" aria-hidden="true"></div>
+      <h1>I build <span class="hl">weird, real</span> things.</h1>
+      <p class="sub">Firmware, web apps, AI tools — and a real fintech engineering internship in between all of it. CS student at SFU, based in Vancouver.</p>
+      <div class="cta-row">
+        <a class="btn-pink" href="mailto:jsg51@sfu.ca">say hi ✉</a>
+        <a class="btn-outline" href="https://github.com/JagrajG" target="_blank" rel="noopener noreferrer">see the code</a>
+      </div>
+    </section>
+
+    <section class="board" id="work">
+      <div class="card">
+        <span class="badge">internship</span>
+        <h2>Savi Finance</h2>
+        <p>Shipped features for 1,000+ users. Cut login errors 45%.</p>
+      </div>
+      <div class="card">
+        <span class="badge">AI</span>
+        <h2>AI Study Pal</h2>
+        <p>PDFs → validated flashcards, built end to end.</p>
+      </div>
+      <div class="card">
+        <span class="badge">firmware</span>
+        <h2>Robotic Arm</h2>
+        <p>4-DOF arm, dual ESP32, real-time wireless control.</p>
+      </div>
+      <div class="card">
+        <span class="badge">systems</span>
+        <h2>Memory Allocator</h2>
+        <p>Custom allocator in C with first-fit block reuse.</p>
+      </div>
+    </section>
+
+    <footer>Vancouver, BC · <a href="mailto:jsg51@sfu.ca">jsg51@sfu.ca</a></footer>
+  </div>
+</body>
+</html>

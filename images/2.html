@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jagraj Gill — Concept: Museum Placard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Petrona:wght@400;500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --wall: #1f3327;
+    --ivory: #f2ede1;
+    --ink: #201d16;
+    --brass: #c9a24b;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--wall);
+    color: var(--ivory);
+    font-family: "Public Sans", sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: clamp(28px, 5vw, 64px) clamp(18px, 4vw, 40px); }
+
+  header.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid rgba(242, 237, 225, 0.2);
+    padding-bottom: 20px;
+    margin-bottom: clamp(50px, 8vw, 90px);
+  }
+  .mark { font-family: "Petrona", serif; font-size: 1.1rem; }
+  .top-meta { font-size: 0.78rem; color: var(--brass); letter-spacing: 0.03em; }
+
+  .hero { text-align: center; position: relative; margin-bottom: clamp(60px, 8vw, 100px); }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 340px;
+    height: 340px;
+    background: radial-gradient(circle, rgba(242,237,225,0.14), transparent 70%);
+    pointer-events: none;
+  }
+  h1 {
+    position: relative;
+    font-family: "Petrona", serif;
+    font-weight: 500;
+    font-size: clamp(2.4rem, 6vw, 4.4rem);
+    line-height: 1.1;
+    margin: 0 0 20px;
+    text-wrap: balance;
+  }
+  .sub {
+    position: relative;
+    max-width: 52ch;
+    margin: 0 auto 30px;
+    color: rgba(242,237,225,0.82);
+    font-size: 1.02rem;
+    text-wrap: pretty;
+  }
+  .cta {
+    position: relative;
+    display: inline-block;
+    border: 1px solid var(--brass);
+    color: var(--brass);
+    text-decoration: none;
+    padding: 12px 26px;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    transition: background 150ms ease-out, color 150ms ease-out;
+  }
+  .cta:hover { background: var(--brass); color: var(--wall); }
+  .cta:focus-visible { outline: 2px solid var(--ivory); outline-offset: 3px; }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(28px, 4vw, 44px);
+  }
+  .placard {
+    background: var(--ivory);
+    color: var(--ink);
+    padding: 28px 26px;
+    border: 1px solid var(--brass);
+  }
+  .placard .plate {
+    font-family: "Petrona", serif;
+    font-size: 0.7rem;
+    color: var(--brass);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .placard h2 {
+    font-family: "Petrona", serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0 0 10px;
+  }
+  .placard p { font-size: 0.88rem; color: #4a4436; margin: 0 0 8px; }
+  .placard .medium { font-size: 0.78rem; font-style: italic; color: #6b6552; }
+
+  footer {
+    margin-top: clamp(60px, 8vw, 90px);
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(242,237,225,0.6);
+  }
+  footer a { color: var(--brass); }
+
+  @media (prefers-reduced-motion: reduce) { * { transition-duration: 0.01ms !important; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <span class="mark">Jagraj Gill</span>
+      <span class="top-meta">PERMANENT COLLECTION · 2026</span>
+    </header>
+
+    <section class="hero">
+      <h1>Works in engineering, on exhibit.</h1>
+      <p class="sub">CS student at SFU. Firmware, web, and AI — with a real fintech engineering internship among the pieces on display.</p>
+      <a class="cta" href="mailto:jsg51@sfu.ca">Inquire</a>
+    </section>
+
+    <section class="gallery">
+      <div class="placard">
+        <p class="plate">Exhibit: Professional Practice</p>
+        <h2>Software Engineering Intern, Savi Finance</h2>
+        <p>Full-stack features for a fintech platform serving 1,000+ users. Login-error rate reduced 45%.</p>
+        <p class="medium">Medium: React, React Native, MongoDB, GraphQL</p>
+      </div>
+      <div class="placard">
+        <p class="plate">Exhibit: Applied AI</p>
+        <h2>AI Study Pal</h2>
+        <p>Converts source documents into structured, validated study material.</p>
+        <p class="medium">Medium: Python, FastAPI, Gemini API</p>
+      </div>
+      <div class="placard">
+        <p class="plate">Exhibit: Kinetic Systems</p>
+        <h2>Wireless 4-DOF Robotic Arm</h2>
+        <p>Dual-controller arm with synchronized real-time motion.</p>
+        <p class="medium">Medium: ESP32, C, PWM</p>
+      </div>
+    </section>
+
+    <footer>Vancouver, BC · <a href="mailto:jsg51@sfu.ca">jsg51@sfu.ca</a></footer>
+  </div>
+</body>
+</html>

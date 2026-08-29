@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jagraj Gill — Concept 1: Athletic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0b0b0c;
+    --panel: #19191a;
+    --ink: #f4f3ee;
+    --muted: #8c8c86;
+    --volt: #d7ff3d;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Archivo", sans-serif;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px); }
+
+  header.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px clamp(20px, 5vw, 64px);
+  }
+  .mark {
+    font-family: "Anton", sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+  }
+  .mark span { color: var(--volt); }
+  nav.top-links { display: flex; gap: 28px; }
+  nav.top-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 150ms ease-out;
+  }
+  nav.top-links a:hover, nav.top-links a:focus-visible { color: var(--ink); }
+
+  .hero {
+    position: relative;
+    padding: clamp(40px, 8vw, 90px) 0 clamp(60px, 8vw, 110px);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60%;
+    height: 140%;
+    background: var(--volt);
+    clip-path: polygon(40% 0, 100% 0, 60% 100%, 0% 100%);
+    opacity: 0.08;
+    pointer-events: none;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--volt);
+    color: var(--bg);
+    font-weight: 800;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    clip-path: polygon(6% 0, 100% 0, 94% 100%, 0% 100%);
+    margin-bottom: 28px;
+  }
+  h1 {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    line-height: 0.96;
+    letter-spacing: -0.01em;
+    margin: 0 0 28px;
+    max-width: 14ch;
+    text-wrap: balance;
+  }
+  h1 em { font-style: normal; color: var(--volt); }
+  .sub {
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    color: var(--muted);
+    max-width: 46ch;
+    margin: 0 0 40px;
+    text-wrap: pretty;
+  }
+  .cta-row { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--volt);
+    color: var(--bg);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: 0.9rem;
+    padding: 16px 32px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 150ms cubic-bezier(0.25,1,0.5,1);
+    display: inline-block;
+  }
+  .btn-primary:hover { transform: translateY(-3px); }
+  .btn-primary:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  .link-secondary {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--volt);
+    padding-bottom: 2px;
+  }
+  .link-secondary:focus-visible { outline: 3px solid var(--volt); outline-offset: 3px; }
+
+  .stat-row {
+    border-top: 1px solid #2a2a2b;
+    padding: 44px 0;
+  }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 32px;
+  }
+  .stat-num {
+    font-family: "Anton", sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--volt);
+    line-height: 1;
+    margin-bottom: 8px;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-label {
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .lineup {
+    border-top: 1px solid #2a2a2b;
+    padding: 60px 0 80px;
+  }
+  .lineup h2 {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    margin: 0 0 32px;
+  }
+  .roster {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2px;
+    background: #2a2a2b;
+  }
+  .roster-item {
+    background: var(--panel);
+    padding: 28px 24px;
+    transition: background 150ms ease-out;
+  }
+  .roster-item:hover { background: #212122; }
+  .roster-item .num {
+    color: var(--volt);
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+  }
+  .roster-item h3 {
+    font-size: 1.05rem;
+    margin: 10px 0 6px;
+  }
+  .roster-item p { color: var(--muted); font-size: 0.88rem; margin: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+  <header class="top">
+    <div class="mark">JAGRAJ<span>.</span>GILL</div>
+    <nav class="top-links">
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero wrap">
+    <span class="tag">CS '26 · Vancouver, BC</span>
+    <h1>Built for the <em>full stack.</em></h1>
+    <p class="sub">Firmware, web, and AI — shipped in a real fintech engineering job, not just class projects.</p>
+    <div class="cta-row">
+      <a class="btn-primary" href="mailto:jsg51@sfu.ca">Get In Touch</a>
+      <a class="link-secondary" href="#work">See The Work</a>
+    </div>
+  </section>
+
+  <section class="stat-row wrap">
+    <div class="stat-grid">
+      <div>
+        <div class="stat-num">45%</div>
+        <div class="stat-label">Fewer login errors shipped</div>
+      </div>
+      <div>
+        <div class="stat-num">15%</div>
+        <div class="stat-label">Faster release cycles</div>
+      </div>
+      <div>
+        <div class="stat-num">1000+</div>
+        <div class="stat-label">Users on production platform</div>
+      </div>
+      <div>
+        <div class="stat-num">8</div>
+        <div class="stat-label">Shipped projects, four disciplines</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lineup wrap" id="work">
+    <h2>Current lineup</h2>
+    <div class="roster">
+      <div class="roster-item">
+        <div class="num">FIRMWARE</div>
+        <h3>Wireless 4-DOF Robotic Arm</h3>
+        <p>Dual ESP32 control, synchronized real-time motion.</p>
+      </div>
+      <div class="roster-item">
+        <div class="num">EMBEDDED + WEB</div>
+        <h3>IoT Climate Monitor</h3>
+        <p>ESP-IDF firmware to a live FastAPI dashboard.</p>
+      </div>
+      <div class="roster-item">
+        <div class="num">AI</div>
+        <h3>AI Study Pal</h3>
+        <p>PDFs to validated flashcard datasets, Gemini-backed.</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

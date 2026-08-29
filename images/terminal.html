@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jagraj Gill — Concept 4: Terminal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0e0c;
+    --panel: #101511;
+    --green: #b9ffb0;
+    --green-dim: #8fae97;
+    --amber: #ffb454;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--green);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 32px); }
+
+  .window {
+    margin: clamp(24px, 6vh, 60px) auto;
+    max-width: 860px;
+    border: 1px solid #2a3a2f;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--panel);
+    box-shadow: 0 40px 100px -30px rgba(0,0,0,0.6);
+  }
+  .chrome {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: #14201a;
+    border-bottom: 1px solid #2a3a2f;
+  }
+  .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .dot.r { background: #ff5f57; }
+  .dot.y { background: #febc2e; }
+  .dot.g { background: #28c840; }
+  .chrome-title {
+    margin-left: 12px;
+    color: var(--green-dim);
+    font-size: 0.78rem;
+  }
+
+  .term-body { padding: clamp(24px, 5vw, 44px); }
+
+  .line { margin: 0 0 6px; white-space: pre-wrap; }
+  .prompt { color: var(--amber); }
+  .path { color: var(--green-dim); }
+
+  h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    line-height: 1.15;
+    margin: 18px 0 10px;
+    color: #eafff0;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .sub {
+    color: var(--green-dim);
+    max-width: 62ch;
+    margin: 0 0 26px;
+    text-wrap: pretty;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1.05em;
+    background: var(--green);
+    vertical-align: text-bottom;
+    animation: blink 1s steps(2, jump-none) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .section-title { color: var(--amber); margin: 30px 0 12px; }
+
+  ul.filelist { list-style: none; margin: 0 0 26px; padding: 0; }
+  ul.filelist li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    padding: 7px 0;
+    border-bottom: 1px dashed #23322a;
+    font-size: 0.92rem;
+  }
+  ul.filelist li .name { color: #eafff0; }
+  ul.filelist li .tag { color: var(--green-dim); font-variant-numeric: tabular-nums; }
+
+  .cta-row { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--green);
+    color: var(--green);
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-size: 0.88rem;
+    transition: background 150ms ease-out, color 150ms ease-out;
+  }
+  .btn:hover { background: var(--green); color: var(--bg); }
+  .btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor { animation: none; opacity: 1; }
+  }
+</style>
+</head>
+<body>
+  <div class="window">
+    <div class="chrome">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="chrome-title">jgill@portfolio: ~</span>
+    </div>
+    <div class="term-body">
+      <p class="line"><span class="prompt">$</span> whoami</p>
+      <h1>Jagraj Gill<span class="cursor" aria-hidden="true"></span></h1>
+      <p class="sub">CS @ SFU. Prev SWE Intern @ Savi Finance. Firmware, web, and AI — shipped, not just studied.</p>
+
+      <p class="line section-title"># ls experience/</p>
+      <ul class="filelist">
+        <li><span class="name">savi-finance/</span><span class="tag">may2025 — dec2025</span></li>
+        <li><span class="name">stormhacks-2024/</span><span class="tag">may2024</span></li>
+      </ul>
+
+      <p class="line section-title"># cat projects.log | head -4</p>
+      <ul class="filelist">
+        <li><span class="name">memory-allocator.c</span><span class="tag">C</span></li>
+        <li><span class="name">iot-climate-monitor/</span><span class="tag">esp-idf, fastapi</span></li>
+        <li><span class="name">ai-study-pal/</span><span class="tag">python, gemini</span></li>
+        <li><span class="name">robotic-arm/</span><span class="tag">esp32, c</span></li>
+      </ul>
+
+      <p class="line"><span class="prompt">$</span> <span class="path">open</span> contact.sh</p>
+      <div class="cta-row">
+        <a class="btn" href="mailto:jsg51@sfu.ca">./email</a>
+        <a class="btn" href="https://github.com/JagrajG" target="_blank" rel="noopener noreferrer">./github</a>
+        <a class="btn" href="/Resume.pdf" target="_blank" rel="noopener noreferrer">./resume</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

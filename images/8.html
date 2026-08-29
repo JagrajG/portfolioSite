@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jagraj Gill — Concept: HUD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Iceberg&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #050810;
+    --panel: #0c1220;
+    --cyan: #4fd7ff;
+    --amber: #ffb238;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--cyan);
+    font-family: "Rajdhani", sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: clamp(24px, 5vw, 56px) clamp(18px, 4vw, 40px); }
+
+  .frame {
+    position: relative;
+    border: 1px solid rgba(79, 215, 255, 0.35);
+    padding: clamp(30px, 6vw, 60px);
+  }
+  .bracket { position: absolute; width: 22px; height: 22px; border: 2px solid var(--cyan); }
+  .bracket.tl { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+  .bracket.tr { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+  .bracket.bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
+  .bracket.br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+  .telemetry { display: flex; justify-content: space-between; font-size: 0.78rem; letter-spacing: 0.03em; margin-bottom: clamp(40px, 6vw, 70px); color: rgba(79,215,255,0.75); }
+
+  .hero { position: relative; margin-bottom: clamp(50px, 7vw, 80px); }
+  .status-line { color: var(--amber); font-size: 0.85rem; margin-bottom: 14px; letter-spacing: 0.04em; }
+  h1 {
+    font-family: "Iceberg", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(2.2rem, 6.5vw, 4.6rem);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    color: #eafcff;
+    margin: 0 0 20px;
+    max-width: 16ch;
+    text-wrap: balance;
+  }
+  .sub {
+    max-width: 56ch;
+    font-size: 1.05rem;
+    color: rgba(234,252,255,0.75);
+    margin: 0 0 30px;
+    text-wrap: pretty;
+  }
+  .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: 0.85rem;
+    padding: 12px 24px;
+    text-decoration: none;
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    transition: background 150ms ease-out, color 150ms ease-out;
+  }
+  .btn:hover { background: var(--cyan); color: var(--bg); }
+  .btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+
+  .readouts {
+    border-top: 1px solid rgba(79,215,255,0.3);
+    padding-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .readout { background: var(--panel); border: 1px solid rgba(79,215,255,0.25); padding: 18px; }
+  .readout .tag { font-size: 0.7rem; color: var(--amber); letter-spacing: 0.04em; margin-bottom: 8px; }
+  .readout h2 { font-family: "Iceberg", sans-serif; font-weight: 400; font-size: 1.05rem; color: #eafcff; margin: 0 0 6px; text-transform: uppercase; }
+  .readout p { font-size: 0.82rem; color: rgba(234,252,255,0.65); margin: 0; font-variant-numeric: tabular-nums; }
+
+  .scan {
+    position: absolute; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    top: 0;
+    animation: sweep 5s linear infinite;
+    opacity: 0.5;
+  }
+  @keyframes sweep { 0% { top: 0; } 100% { top: 100%; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scan { animation: none; opacity: 0.15; top: 50%; }
+    * { transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="frame">
+      <span class="bracket tl" aria-hidden="true"></span>
+      <span class="bracket tr" aria-hidden="true"></span>
+      <span class="bracket bl" aria-hidden="true"></span>
+      <span class="bracket br" aria-hidden="true"></span>
+      <span class="scan" aria-hidden="true"></span>
+
+      <div class="telemetry">
+        <span>SYS: JAGRAJ_GILL.PORTFOLIO</span>
+        <span>LOC: VANCOUVER, BC</span>
+      </div>
+
+      <section class="hero">
+        <p class="status-line">// STATUS: OPEN TO WORK</p>
+        <h1>Full stack, online.</h1>
+        <p class="sub">CS student at SFU. Firmware, web, and AI, backed by a real fintech engineering internship.</p>
+        <div class="cta-row">
+          <a class="btn" href="mailto:jsg51@sfu.ca">Transmit Email</a>
+          <a class="btn" href="https://github.com/JagrajG" target="_blank" rel="noopener noreferrer">Access GitHub</a>
+        </div>
+      </section>
+
+      <section class="readouts">
+        <div class="readout">
+          <div class="tag">SYS: FINTECH</div>
+          <h2>Savi Finance</h2>
+          <p>45% fewer login errors · 1,000+ users</p>
+        </div>
+        <div class="readout">
+          <div class="tag">SYS: AI-CORE</div>
+          <h2>AI Study Pal</h2>
+          <p>Gemini-backed flashcard generation</p>
+        </div>
+        <div class="readout">
+          <div class="tag">SYS: ROBOTICS</div>
+          <h2>Robotic Arm</h2>
+          <p>4-DOF, dual ESP32, wireless sync</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

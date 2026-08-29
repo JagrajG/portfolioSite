@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jagraj Gill — Concept: Blueprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0b3d6e;
+    --panel: #163f70;
+    --ink: #eaf4ff;
+    --amber: #ffb347;
+    --grid: rgba(234, 244, 255, 0.16);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background:
+      repeating-linear-gradient(0deg, var(--grid) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--grid) 0 1px, transparent 1px 32px),
+      var(--bg);
+    color: var(--ink);
+    font-family: "Martian Mono", monospace;
+    line-height: 1.6;
+  }
+  .sheet {
+    max-width: 1100px;
+    margin: clamp(20px, 4vw, 40px) auto;
+    border: 2px solid var(--ink);
+    position: relative;
+  }
+  .sheet::before, .sheet::after,
+  .corner-tl, .corner-br { content: ""; position: absolute; width: 18px; height: 18px; border: 2px solid var(--amber); }
+  .corner-tl { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+  .corner-br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+  .titleblock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--ink);
+    padding: 14px clamp(16px, 3vw, 32px);
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+  }
+  .titleblock .sheet-no { color: var(--amber); }
+
+  .hero {
+    padding: clamp(50px, 8vw, 100px) clamp(16px, 4vw, 32px) clamp(30px, 5vw, 50px);
+    position: relative;
+  }
+  .callout {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    color: var(--amber);
+    margin-bottom: 22px;
+  }
+  .callout::before { content: "→"; }
+  h1 {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(2.6rem, 8vw, 6rem);
+    line-height: 0.98;
+    letter-spacing: -0.01em;
+    margin: 0 0 22px;
+    max-width: 15ch;
+    text-wrap: balance;
+  }
+  .sub {
+    font-size: 0.92rem;
+    max-width: 58ch;
+    color: var(--ink);
+    opacity: 0.85;
+    margin: 0 0 36px;
+    text-wrap: pretty;
+  }
+  .dim-line { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 0.75rem; }
+  .dim-line .tick { width: 24px; border-top: 1px solid var(--amber); }
+  .cta-row { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+  .btn {
+    border: 2px solid var(--amber);
+    color: var(--amber);
+    text-decoration: none;
+    padding: 12px 22px;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    transition: background 150ms ease-out, color 150ms ease-out;
+  }
+  .btn:hover { background: var(--amber); color: var(--bg); }
+  .btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+  .schematic {
+    border-top: 2px solid var(--ink);
+    padding: clamp(30px, 5vw, 50px) clamp(16px, 4vw, 32px);
+  }
+  .schematic h2 {
+    font-family: "Barlow Condensed", sans-serif;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    letter-spacing: 0.02em;
+    margin: 0 0 24px;
+  }
+  .spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--grid);
+    border-left: 1px solid var(--grid);
+  }
+  .spec {
+    border-right: 1px solid var(--grid);
+    border-bottom: 1px solid var(--grid);
+    padding: 20px;
+  }
+  .spec .code { color: var(--amber); font-size: 0.7rem; margin-bottom: 8px; }
+  .spec h3 { font-size: 0.95rem; margin: 0 0 6px; font-weight: 600; }
+  .spec p { font-size: 0.78rem; opacity: 0.8; margin: 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition-duration: 0.01ms !important; } }
+</style>
+</head>
+<body>
+  <div class="sheet">
+    <span class="corner-tl" aria-hidden="true"></span>
+    <span class="corner-br" aria-hidden="true"></span>
+    <div class="titleblock">
+      <span>JAGRAJ GILL — ENGINEERING PORTFOLIO</span>
+      <span class="sheet-no">SHEET 01 / REV 2026</span>
+    </div>
+
+    <section class="hero">
+      <p class="callout">CS @ SFU · VANCOUVER, BC</p>
+      <h1>Drafted for the full stack.</h1>
+      <p class="sub">Firmware, web, and AI — engineered with the same rigor, shipped in a real fintech engineering job.</p>
+      <div class="dim-line"><span class="tick"></span> 45% fewer login errors shipped at Savi Finance</div>
+      <div class="dim-line"><span class="tick"></span> 15% faster release cycles, shared React/React Native modules</div>
+      <div class="cta-row">
+        <a class="btn" href="mailto:jsg51@sfu.ca">Email</a>
+        <a class="btn" href="https://github.com/JagrajG" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </section>
+
+    <section class="schematic">
+      <h2>Component Index</h2>
+      <div class="spec-grid">
+        <div class="spec">
+          <div class="code">ASM-01 / C</div>
+          <h3>Memory Allocator</h3>
+          <p>Fixed-size heap manager, first-fit reuse.</p>
+        </div>
+        <div class="spec">
+          <div class="code">ASM-02 / ESP-IDF</div>
+          <h3>IoT Climate Monitor</h3>
+          <p>Sensor firmware to live dashboard.</p>
+        </div>
+        <div class="spec">
+          <div class="code">ASM-03 / PYTHON</div>
+          <h3>AI Study Pal</h3>
+          <p>PDFs to validated flashcard sets.</p>
+        </div>
+        <div class="spec">
+          <div class="code">ASM-04 / ESP32</div>
+          <h3>4-DOF Robotic Arm</h3>
+          <p>Dual-controller synchronized motion.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

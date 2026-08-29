@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jagraj Gill — Concept: Holo Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --page: #150f22;
+    --card: #241b3a;
+    --ink: #f5f2ff;
+    --cyan: #5be6ff;
+    --magenta: #ff5bd6;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: radial-gradient(circle at 50% 0%, #2a2144, var(--page) 60%);
+    color: var(--ink);
+    font-family: "Nunito Sans", sans-serif;
+    line-height: 1.55;
+    display: flex;
+    justify-content: center;
+    padding: clamp(28px, 6vw, 64px) 18px;
+  }
+  .card {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 24px;
+    padding: 4px;
+    background: conic-gradient(from 120deg, var(--cyan), var(--magenta), #ffe066, var(--cyan));
+  }
+  .card-inner {
+    background: var(--card);
+    border-radius: 21px;
+    padding: 26px 24px 30px;
+  }
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+  .rarity {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #1a1428;
+    background: linear-gradient(120deg, var(--cyan), var(--magenta));
+    padding: 5px 12px;
+    border-radius: 999px;
+  }
+  .hp { font-size: 0.72rem; color: var(--magenta); font-weight: 700; }
+
+  .name-banner {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.6rem, 6vw, 2.1rem);
+    line-height: 1.05;
+    margin: 0 0 6px;
+    text-wrap: balance;
+  }
+  .class-line { font-size: 0.85rem; color: var(--cyan); margin: 0 0 20px; font-weight: 600; }
+
+  .stat { margin-bottom: 14px; }
+  .stat-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  .stat-track { height: 8px; border-radius: 999px; background: rgba(245,242,255,0.12); overflow: hidden; }
+  .stat-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--cyan), var(--magenta)); }
+
+  .moves { margin-top: 22px; border-top: 1px solid rgba(245,242,255,0.14); padding-top: 18px; }
+  .moves h2 { font-family: "Baloo 2", sans-serif; font-size: 0.9rem; margin: 0 0 12px; color: var(--ink); }
+  .move { display: flex; justify-content: space-between; gap: 12px; font-size: 0.82rem; padding: 8px 0; border-bottom: 1px dashed rgba(245,242,255,0.14); }
+  .move:last-child { border-bottom: none; }
+  .move .cost { color: var(--magenta); font-weight: 700; flex-shrink: 0; }
+
+  .card-foot {
+    margin-top: 22px;
+    display: flex;
+    gap: 12px;
+  }
+  .foot-btn {
+    flex: 1;
+    text-align: center;
+    padding: 11px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.82rem;
+  }
+  .foot-btn.primary { background: var(--cyan); color: #10202a; }
+  .foot-btn.secondary { border: 1px solid var(--ink); color: var(--ink); }
+  .foot-btn:focus-visible { outline: 2px solid var(--magenta); outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition-duration: 0.01ms !important; } }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-top">
+        <span class="rarity">RARE HOLO</span>
+        <span class="hp">EXP 3.5 YRS</span>
+      </div>
+      <h1 class="name-banner">Jagraj Gill</h1>
+      <p class="class-line">Full-Stack / Firmware / AI — Type: Builder</p>
+
+      <div class="stat">
+        <div class="stat-label"><span>Ship Speed</span><span>88</span></div>
+        <div class="stat-track"><div class="stat-fill" style="width:88%"></div></div>
+      </div>
+      <div class="stat">
+        <div class="stat-label"><span>Stack Range</span><span>92</span></div>
+        <div class="stat-track"><div class="stat-fill" style="width:92%"></div></div>
+      </div>
+      <div class="stat">
+        <div class="stat-label"><span>Reliability</span><span>81</span></div>
+        <div class="stat-track"><div class="stat-fill" style="width:81%"></div></div>
+      </div>
+
+      <div class="moves">
+        <h2>Abilities</h2>
+        <div class="move"><span>Production Deploy</span><span class="cost">Savi Finance</span></div>
+        <div class="move"><span>Wireless Sync</span><span class="cost">Robotic Arm</span></div>
+        <div class="move"><span>Flashcard Gen</span><span class="cost">AI Study Pal</span></div>
+      </div>
+
+      <div class="card-foot">
+        <a class="foot-btn primary" href="mailto:jsg51@sfu.ca">Recruit</a>
+        <a class="foot-btn secondary" href="https://github.com/JagrajG" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

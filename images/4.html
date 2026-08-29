@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jagraj Gill — Concept: Departures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a1f44;
+    --panel: #12295c;
+    --ink: #ffffff;
+    --yellow: #ffcd00;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Fragment Mono", monospace;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 36px); }
+
+  header.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--yellow);
+    color: var(--bg);
+    padding: 14px clamp(16px, 4vw, 36px);
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+  }
+
+  .hero { padding: clamp(50px, 8vw, 90px) 0 clamp(30px, 5vw, 50px); }
+  .flight-code { color: var(--yellow); font-size: 0.85rem; margin-bottom: 14px; }
+  h1 {
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(2.4rem, 7vw, 5.2rem);
+    line-height: 1.02;
+    margin: 0 0 20px;
+    max-width: 16ch;
+    text-wrap: balance;
+  }
+  .sub {
+    font-size: 0.95rem;
+    max-width: 58ch;
+    opacity: 0.85;
+    margin: 0 0 34px;
+    text-wrap: pretty;
+  }
+  .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-weight: 600;
+    font-size: 0.82rem;
+    padding: 13px 26px;
+    text-decoration: none;
+  }
+  .btn.primary { background: var(--yellow); color: var(--bg); }
+  .btn.secondary { border: 1px solid var(--ink); color: var(--ink); }
+  .btn:focus-visible { outline: 2px solid var(--yellow); outline-offset: 3px; }
+
+  .board {
+    border-top: 3px solid var(--yellow);
+    border-bottom: 3px solid var(--yellow);
+    padding: 28px 0 34px;
+  }
+  .board h2 {
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 0.03em;
+    margin: 0 0 18px;
+  }
+  .board-head, .board-row {
+    display: grid;
+    grid-template-columns: 90px 1fr 110px 130px;
+    gap: 12px;
+    padding: 12px 8px;
+    font-size: 0.82rem;
+    align-items: center;
+  }
+  .board-head { color: var(--yellow); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  .board-row { background: var(--panel); }
+  .board-row + .board-row { margin-top: 4px; }
+  .board-row .num { font-variant-numeric: tabular-nums; color: var(--yellow); }
+  .board-row .status { color: var(--yellow); font-weight: 600; text-transform: uppercase; font-size: 0.72rem; }
+
+  footer { padding: 26px 0; text-align: center; font-size: 0.78rem; opacity: 0.7; }
+  footer a { color: var(--yellow); }
+
+  @media (prefers-reduced-motion: reduce) { * { transition-duration: 0.01ms !important; } }
+
+  @media (max-width: 640px) {
+    .board-head, .board-row { grid-template-columns: 60px 1fr 90px; }
+    .board-head span:nth-child(3), .board-row .cat { display: none; }
+  }
+</style>
+</head>
+<body>
+  <header class="top">
+    <span>YVR — TERMINAL 1</span>
+    <span>JAGRAJ GILL</span>
+  </header>
+
+  <section class="hero wrap">
+    <p class="flight-code">STATUS: OPEN TO WORK</p>
+    <h1>Now boarding: full stack.</h1>
+    <p class="sub">CS student at SFU. Firmware, web, and AI — with a real fintech engineering internship already logged.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:jsg51@sfu.ca">Book Contact</a>
+      <a class="btn secondary" href="/Resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
+    </div>
+  </section>
+
+  <section class="board wrap">
+    <h2>Departures</h2>
+    <div class="board-head">
+      <span>Gate</span><span>Destination</span><span class="cat">Category</span><span>Status</span>
+    </div>
+    <div class="board-row">
+      <span class="num">A1</span><span>Savi Finance — SWE Intern</span><span class="cat">Fintech</span><span class="status">Landed</span>
+    </div>
+    <div class="board-row">
+      <span class="num">A2</span><span>AI Study Pal</span><span class="cat">AI</span><span class="status">On Time</span>
+    </div>
+    <div class="board-row">
+      <span class="num">B4</span><span>IoT Climate Monitor</span><span class="cat">Embedded</span><span class="status">On Time</span>
+    </div>
+    <div class="board-row">
+      <span class="num">B7</span><span>Wireless Robotic Arm</span><span class="cat">Embedded</span><span class="status">Boarding</span>
+    </div>
+  </section>
+
+  <footer>Vancouver, BC · <a href="mailto:jsg51@sfu.ca">jsg51@sfu.ca</a></footer>
+</body>
+</html>
