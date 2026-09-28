@@ -446,7 +446,6 @@ const TitleScreen = ({ innerRef }) => (
 
     <ul className="title-stats" aria-label="Quick facts">
       <li>SWE Intern @ Aquanow</li>
-      <li>Prev SWE Intern @ Savi Finance</li>
       <li>Vancouver, BC</li>
     </ul>
 
